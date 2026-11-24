@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="t d">
+  <title id="t">ERP and AI automation at CardoO</title>
+  <desc id="d">An ERP dashboard with business modules, one being customised in code, next to an automation workflow where a new order triggers an AI step that sends an automatic message.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset=".6" stop-color="#3b2117"/>
+      <stop offset="1" stop-color="#9a3412"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".85" cy=".2" r=".6">
+      <stop offset="0" stop-color="#f97316" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#fff" fill-opacity=".06"/>
+    </pattern>
+    <linearGradient id="win" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2433"/>
+      <stop offset="1" stop-color="#151a26"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#ea580c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: 'Segoe UI', Inter, Arial, sans-serif; }
+    .mono { font-family: Consolas, Menlo, 'Courier New', monospace; }
+    .flow { stroke-dasharray: 6 8; animation: flow 1s linear infinite; }
+    .pulse { offset-rotate: 0deg; animation: travel 4s ease-in-out infinite; }
+    .p1 { offset-path: path("M248 0 C 290 0, 290 0, 330 0"); }
+    .hl { animation: hl 4s ease-in-out infinite; }
+    .badge { transform-box: fill-box; transform-origin: center; animation: pop 4s ease-in-out infinite; }
+    .msg { animation: msg 4s ease-in-out infinite; }
+    .typing circle { animation: blink 1s infinite; }
+    .typing circle:nth-child(2) { animation-delay: .2s; }
+    .typing circle:nth-child(3) { animation-delay: .4s; }
+    .bar { transform-box: fill-box; transform-origin: 50% 100%; animation: grow 4s ease-in-out infinite; }
+    .bar.b2 { animation-delay: .3s; } .bar.b3 { animation-delay: .6s; } .bar.b4 { animation-delay: .9s; }
+    .commit { animation: commit 4s ease-in-out infinite; }
+    .commit.c2 { animation-delay: .5s; } .commit.c3 { animation-delay: 1s; }
+    .node-glow { animation: nodeglow 4s ease-in-out infinite; }
+    .node-glow.n2 { animation-delay: 1.2s; } .node-glow.n3 { animation-delay: 2.4s; }
+    .caret { animation: blink 1s steps(2, jump-none) infinite; }
+    @keyframes flow { to { stroke-dashoffset: -28; } }
+    @keyframes hl { 0%, 100% { stroke-opacity: .25; } 50% { stroke-opacity: 1; } }
+    @keyframes pop { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+    @keyframes msg { 0%, 55% { opacity: 0; transform: translateY(8px); } 65%, 92% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; } }
+    @keyframes blink { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes grow { 0%, 100% { transform: scaleY(.55); } 50% { transform: scaleY(1); } }
+    @keyframes commit { 0%, 20% { fill: #334155; } 35%, 100% { fill: #4ade80; } }
+    @keyframes nodeglow { 0%, 100% { stroke: #475569; } 15%, 35% { stroke: #fb923c; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .msg { opacity: 1; } }
+  </style>
+
+  <!-- background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+  <rect width="800" height="450" fill="url(#dots)"/>
+
+  <!-- ===== ERP window ===== -->
+  <g filter="url(#shadow)">
+    <rect x="34" y="46" width="404" height="300" rx="14" fill="url(#win)" stroke="#ffffff" stroke-opacity=".08"/>
+  </g>
+  <!-- title bar -->
+  <rect x="34" y="46" width="404" height="34" rx="14" fill="#0f141f"/>
+  <rect x="34" y="66" width="404" height="14" fill="#0f141f"/>
+  <circle cx="54" cy="63" r="5" fill="#f87171"/><circle cx="70" cy="63" r="5" fill="#fbbf24"/><circle cx="86" cy="63" r="5" fill="#4ade80"/>
+  <text x="236" y="68" text-anchor="middle" font-size="12" font-weight="600" fill="#94a3b8" letter-spacing="1">ERP · CARDOO</text>
+  <!-- sidebar -->
+  <rect x="34" y="80" width="54" height="266" fill="#121723"/>
+  <g fill="#334155">
+    <rect x="48" y="96" width="26" height="6" rx="3"/><rect x="48" y="114" width="26" height="6" rx="3"/>
+    <rect x="48" y="132" width="26" height="6" rx="3"/><rect x="48" y="150" width="26" height="6" rx="3"/>
+  </g>
+  <rect x="44" y="92" width="34" height="14" rx="5" fill="#f97316" fill-opacity=".25"/>
+
+  <!-- module tiles 3 x 2 -->
+  <g font-size="11.5" font-weight="600" fill="#cbd5e1">
+    <!-- Sales -->
+    <rect x="102" y="94" width="104" height="80" rx="10" fill="#1c2232" stroke="#ffffff" stroke-opacity=".06"/>
+    <g fill="#fb923c">
+      <rect class="bar" x="118" y="128" width="10" height="22" rx="2"/>
+      <rect class="bar b2" x="133" y="118" width="10" height="32" rx="2"/>
+      <rect class="bar b3" x="148" y="110" width="10" height="40" rx="2"/>
+      <rect class="bar b4" x="163" y="122" width="10" height="28" rx="2"/>
+    </g>
+    <text x="118" y="166">Sales</text>
+    <!-- Inventory -->
+    <rect x="214" y="94" width="104" height="80" rx="10" fill="#1c2232" stroke="#ffffff" stroke-opacity=".06"/>
+    <g fill="#38bdf8" fill-opacity=".85">
+      <rect x="236" y="128" width="20" height="20" rx="3"/><rect x="260" y="128" width="20" height="20" rx="3"/><rect x="248" y="106" width="20" height="20" rx="3"/>
+    </g>
+    <text x="230" y="166">Inventory</text>
+    <!-- Invoicing (customised) -->
+    <rect x="326" y="94" width="104" height="80" rx="10" fill="#1c2232"/>
+    <rect class="hl" x="326" y="94" width="104" height="80" rx="10" fill="none" stroke="#fb923c" stroke-width="2"/>
+    <rect x="350" y="104" width="34" height="44" rx="4" fill="#e2e8f0"/>
+    <g stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"><path d="M357 116h20M357 124h20M357 132h12"/></g>
+    <g class="badge"><rect x="388" y="102" width="34" height="20" rx="10" fill="url(#orange)"/><text x="405" y="116" text-anchor="middle" font-size="11" fill="#fff" class="mono">&lt;/&gt;</text></g>
+    <text x="342" y="166">Invoicing</text>
+    <!-- CRM -->
+    <rect x="102" y="182" width="104" height="80" rx="10" fill="#1c2232" stroke="#ffffff" stroke-opacity=".06"/>
+    <g fill="#a78bfa"><circle cx="140" cy="210" r="9"/><path d="M124 236c2-12 30-12 32 0z"/><circle cx="162" cy="214" r="7" fill-opacity=".6"/><path d="M152 236c2-9 22-9 24 0z" fill-opacity=".6"/></g>
+    <text x="118" y="254">CRM</text>
+    <!-- Website -->
+    <rect x="214" y="182" width="104" height="80" rx="10" fill="#1c2232" stroke="#ffffff" stroke-opacity=".06"/>
+    <g fill="none" stroke="#4ade80" stroke-width="2.5"><circle cx="266" cy="216" r="18"/><path d="M248 216h36M266 198c-10 11-10 25 0 36M266 198c10 11 10 25 0 36"/></g>
+    <text x="230" y="254">Website</text>
+    <!-- Manufacturing -->
+    <rect x="326" y="182" width="104" height="80" rx="10" fill="#1c2232" stroke="#ffffff" stroke-opacity=".06"/>
+    <g fill="#fbbf24"><circle cx="378" cy="214" r="13"/></g>
+    <g stroke="#fbbf24" stroke-width="6" stroke-linecap="round"><path d="M378 194v-4M378 238v-4M358 214h-4M402 214h-4M364 200l-3-3M395 231l-3-3M392 200l3-3M361 231l3-3"/></g>
+    <circle cx="378" cy="214" r="5" fill="#1c2232"/>
+    <text x="342" y="254">Manufacturing</text>
+  </g>
+
+  <!-- code / git strip -->
+  <rect x="102" y="272" width="328" height="62" rx="10" fill="#0d1119"/>
+  <text x="116" y="292" font-size="11.5" class="mono" fill="#94a3b8"><tspan fill="#4ade80">$</tspan> git commit -m "Customise invoice module"</text>
+  <text x="116" y="312" font-size="11.5" class="mono" fill="#94a3b8"><tspan fill="#4ade80">$</tspan> git push origin main<tspan class="caret" fill="#fb923c"> ▌</tspan></text>
+  <path d="M300 324 H410" stroke="#334155" stroke-width="2"/>
+  <circle class="commit" cx="320" cy="324" r="5"/><circle class="commit c2" cx="360" cy="324" r="5"/><circle class="commit c3" cx="400" cy="324" r="5"/>
+
+  <!-- ===== automation workflow ===== -->
+  <text x="470" y="78" font-size="11" font-weight="700" fill="#fdba74" letter-spacing="2">AUTOMATION WORKFLOW</text>
+
+  <!-- connectors -->
+  <g fill="none" stroke="#fb923c" stroke-width="2.5" stroke-opacity=".8">
+    <path class="flow" d="M618 136 V 176"/>
+    <path class="flow" d="M618 236 V 276"/>
+  </g>
+
+  <!-- node 1: trigger -->
+  <rect class="node-glow" x="478" y="92" width="280" height="44" rx="12" fill="#151a26" stroke="#475569" stroke-width="2"/>
+  <circle cx="502" cy="114" r="14" fill="#fb923c" fill-opacity=".18"/>
+  <path d="M504 104l-8 12h7l-3 9 9-13h-7z" fill="#fb923c"/>
+  <text x="526" y="111" font-size="12.5" font-weight="700" fill="#e2e8f0">Trigger</text>
+  <text x="526" y="126" font-size="11" fill="#94a3b8">New order received in ERP</text>
+
+  <!-- node 2: AI -->
+  <rect class="node-glow n2" x="478" y="176" width="280" height="60" rx="12" fill="#151a26" stroke="#475569" stroke-width="2"/>
+  <circle cx="502" cy="206" r="14" fill="#a78bfa" fill-opacity=".2"/>
+  <path d="M502 194l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#c4b5fd"/>
+  <text x="526" y="200" font-size="12.5" font-weight="700" fill="#e2e8f0">AI step</text>
+  <text x="526" y="215" font-size="11" fill="#94a3b8">Writes a personalised reply</text>
+  <g class="typing" fill="#c4b5fd"><circle cx="530" cy="226" r="2.5"/><circle cx="539" cy="226" r="2.5"/><circle cx="548" cy="226" r="2.5"/></g>
+
+  <!-- node 3: send -->
+  <rect class="node-glow n3" x="478" y="276" width="280" height="44" rx="12" fill="#151a26" stroke="#475569" stroke-width="2"/>
+  <circle cx="502" cy="298" r="14" fill="#4ade80" fill-opacity=".18"/>
+  <path d="M494 298l16-8-5 18-3-7z" fill="#4ade80"/>
+  <text x="526" y="295" font-size="12.5" font-weight="700" fill="#e2e8f0">Send message</text>
+  <text x="526" y="310" font-size="11" fill="#94a3b8">Automatic reply to the customer</text>
+
+  <!-- chat bubble -->
+  <g class="msg">
+    <rect x="520" y="338" width="238" height="58" rx="14" fill="#e7fbe9"/>
+    <path d="M740 396l14 10-2-14z" fill="#e7fbe9"/>
+    <text x="536" y="361" font-size="12" font-weight="700" fill="#14532d">CardoO</text>
+    <text x="536" y="381" font-size="12" fill="#166534">Hi! Your order is confirmed ✓</text>
+  </g>
+
+  <!-- footer tags -->
+  <g font-size="11" font-weight="600">
+    <rect x="34" y="366" width="96" height="26" rx="13" fill="#ffffff" fill-opacity=".1"/><text x="82" y="383" text-anchor="middle" fill="#fed7aa">Odoo ERP</text>
+    <rect x="138" y="366" width="64" height="26" rx="13" fill="#ffffff" fill-opacity=".1"/><text x="170" y="383" text-anchor="middle" fill="#fed7aa">n8n</text>
+    <rect x="210" y="366" width="104" height="26" rx="13" fill="#ffffff" fill-opacity=".1"/><text x="262" y="383" text-anchor="middle" fill="#fed7aa">AI automation</text>
+    <rect x="322" y="366" width="88" height="26" rx="13" fill="#ffffff" fill-opacity=".1"/><text x="366" y="383" text-anchor="middle" fill="#fed7aa">Git · GitHub</text>
+  </g>
+</svg>

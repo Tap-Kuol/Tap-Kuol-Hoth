@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Tap Kuol Hoth</title>
+<meta name="description" content="Selected projects and case studies by Tap Kuol Hoth.">
+<meta name="theme-color" content="#0f172a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tap Kuol Hoth">
+<meta property="og:title" content="Projects — Tap Kuol Hoth">
+<meta property="og:description" content="Selected projects and case studies by Tap Kuol Hoth.">
+<meta property="og:image" content="https://tap-kuol.github.io/images/og-image.png">
+<meta property="og:url" content="https://tap-kuol.github.io/projects.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://tap-kuol.github.io/projects.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script src="js/main.js" defer></script>
+<script src="js/demos.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="container nav" aria-label="Main">
+    <a class="brand" href="index.html"><span class="brand-mark">TK</span>Tap Kuol</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="projects.html" aria-current="page">Projects</a></li>
+      <li><a href="tours.html">Tours</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li class="nav-mobile-only"><a href="cv.html">CV</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm nav-cta" href="cv.html">My CV</a>
+      <button class="icon-btn menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="page-header">
+    <div class="container reveal">
+      <span class="eyebrow">Projects</span>
+      <h1>Things I’ve designed, built and shipped.</h1>
+      <p class="lead">A selection of products, tools and experiments — each with the problem, my role and the outcome.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filters reveal" data-filter-group="project-grid" role="group" aria-label="Filter projects">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" type="button" data-filter="work" aria-pressed="false">Work</button>
+        <button class="filter" type="button" data-filter="ai" aria-pressed="false">AI</button>
+        <button class="filter" type="button" data-filter="web" aria-pressed="false">Web &amp; apps</button>
+        <button class="filter" type="button" data-filter="robotics" aria-pressed="false">Robotics</button>
+      </div>
+
+      <!-- To add a screenshot, put <img src="images/project-one.jpg" alt="..."> inside .project-media instead of the label -->
+      <div class="grid grid-2" id="project-grid">
+        <!-- Robotic car media: save your files as
+               images/robotic-car.svg  (animated illustration shown on the card; replace with a .jpg of your real car and update data-photo)
+               images/robotic-car.mp4  (video, opens with the play button)
+             They appear automatically once the files exist. For a YouTube video, put its link in data-video instead. -->
+        <article class="card project-card reveal" data-category="robotics">
+          <div class="project-media" style="--c1:#0f172a;--c2:#0891b2"
+               data-photo="images/robotic-car.svg" data-video="images/robotic-car.mp4"
+               data-alt="Rover-1, our obstacle-avoiding robotic car, detecting a box and turning away"><span class="media-label">Rover-1</span></div>
+          <div class="project-body">
+            <div class="project-meta">Robotics · 2019 · First-year team of 4</div>
+            <h3>Rover-1 <span style="font-weight:500;color:var(--muted)">— obstacle-avoiding robotic car</span></h3>
+            <p>Rover-1 is a four-wheel-drive robotic car that my team of four built in our first year. It finds its own way around obstacles. Its servo-mounted ultrasonic sensor scans ahead, and when something blocks the path the car turns left, turns right or reverses. It can also be controlled from a laptop. Programmed in C++.</p>
+            <ul class="tags"><li class="tag">C++</li><li class="tag">Robotics</li><li class="tag">Embedded systems</li><li class="tag">Ultrasonic sensor</li><li class="tag">Obstacle avoidance</li></ul>
+            <details class="case">
+              <summary>Read the case study</summary>
+              <dl>
+                <div><dt>The goal</dt><dd>Build a small car that can drive itself without crashing: notice when something is in its way and choose a new direction on its own, while still letting us take control from a laptop.</dd></div>
+                <div><dt>How we built it</dt><dd>Our team of four assembled a four-wheel-drive chassis with four DC motors, mounted an ultrasonic distance sensor on a servo at the front, and wired everything to the controller board. We wrote the control program in C++. It reads the distance ahead and, when the path is blocked, uses the servo to look left and right before deciding to turn left, turn right or back up.</dd></div>
+                <div><dt>How it decides</dt><dd>
+                  <ol class="flow">
+                    <li><strong>Measure</strong> — the ultrasonic sensor checks the distance ahead</li>
+                    <li><strong>Decide</strong> — the C++ program compares it with a safe distance</li>
+                    <li><strong>Path clear?</strong> Keep driving. <strong>Blocked?</strong> Stop</li>
+                    <li><strong>Scan</strong> — the servo turns the sensor left and right</li>
+                    <li><strong>Act</strong> — turn toward the clearer side, or reverse if both are blocked</li>
+                  </ol>
+                </dd></div>
+                <div><dt>The result</dt><dd>A working car, built in 2019, that avoids obstacles on its own and can also be driven from a laptop. It brought together mechanics, electronics and software in one project.</dd></div>
+              </dl>
+            </details>
+            <div class="project-links"><button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="rover">▶ Try the simulator</button></div>
+          </div>
+        </article>
+        <article class="card project-card reveal" data-category="ai">
+          <div class="project-media" style="--c1:#14532d;--c2:#0891b2"
+               data-photo="images/projects/ai-football.svg"
+               data-gallery-extra="images/projects/graduation-presentation-2024.jpg"
+               data-alt="Illustration of the AI football dashboard: players detected and tracked on the pitch, with a player performance score and skill profile"><span class="media-label">AI Sports Dashboard</span></div>
+          <div class="project-body">
+            <div class="project-meta">Graduation project · 2024 · Team of 6 · Grade: Excellent</div>
+            <h3>AI Sports Performance Dashboard</h3>
+            <p>Our graduation project at Ain Shams University, graded Excellent: an AI system that analyses football match videos to detect and track every player, scores each player’s performance and predicts how they will perform — all presented in an interactive dashboard.</p>
+            <ul class="tags"><li class="tag">Artificial intelligence</li><li class="tag">Football analytics</li><li class="tag">Computer vision</li><li class="tag">Player tracking</li><li class="tag">Performance prediction</li><li class="tag">Dashboard</li></ul>
+            <details class="case">
+              <summary>Read the case study</summary>
+              <dl>
+                <div><dt>The goal</dt><dd>Turn raw match footage into clear, objective insight into how each player performs.</dd></div>
+                <div><dt>How it works</dt><dd>
+                  <ol class="flow">
+                    <li><strong>Match video</strong> — football footage goes into the system</li>
+                    <li><strong>Detect</strong> — AI finds every player in each frame</li>
+                    <li><strong>Track</strong> — players are followed across the match</li>
+                    <li><strong>Score</strong> — each player’s performance is measured and rated</li>
+                    <li><strong>Dashboard</strong> — results are shown for coaches and analysts</li>
+                  </ol>
+                </dd></div>
+                <div><dt>The result</dt><dd>A working end-to-end system built by our team of six, graded <strong>Excellent</strong> as our graduation project. Click the card image to see a photo from our presentation on 2 July 2024.</dd></div>
+              </dl>
+            </details>
+            <div class="project-links"><button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="football">▶ Try the player analysis</button></div>
+          </div>
+        </article>
+        <article class="card project-card reveal" data-category="work web">
+          <div class="project-media" style="--c1:#1e293b;--c2:#f97316"
+               data-photo="images/projects/cardoo-erp.svg" data-video="images/projects/cardoo-demo.mp4"
+               data-alt="Illustration of an ERP dashboard and an AI automation workflow at CardoO"><span class="media-label">CardoO · ERP &amp; automation</span></div>
+          <div class="project-body">
+            <div class="project-meta">Work · CardoO Tech Department · 2025 – now</div>
+            <h3>ERP, website &amp; AI automation at CardoO</h3>
+            <p>At CardoO, an Egyptian smart-devices and IoT company, I manage and customise the Odoo modules that run the company’s ERP, maintain the CardoO website, build AI-powered automated messaging with n8n, and analyse call-center conversations with AI (see the next project).</p>
+            <ul class="tags"><li class="tag">Odoo ERP</li><li class="tag">n8n</li><li class="tag">AI automation</li><li class="tag">Git &amp; GitHub</li><li class="tag">Web development</li></ul>
+            <details class="case">
+              <summary>How it works</summary>
+              <p class="flow-label">ERP customisation</p>
+              <ol class="flow">
+                <li><strong>Customise</strong> — change an Odoo module in code</li>
+                <li><strong>Version</strong> — commit and push the change with Git/GitHub</li>
+                <li><strong>Deploy</strong> — the updated module runs in CardoO’s ERP</li>
+              </ol>
+              <p class="flow-label">AI messaging automation</p>
+              <ol class="flow">
+                <li><strong>Trigger</strong> — an event happens, such as a new order</li>
+                <li><strong>n8n workflow</strong> — picks up the event automatically</li>
+                <li><strong>AI step</strong> — writes a personalised reply</li>
+                <li><strong>Send</strong> — the message goes to the customer</li>
+              </ol>
+            </details>
+            <div class="project-links">
+              <a class="link-arrow" href="https://cardoo.co/" target="_blank" rel="noopener">Visit CardoO <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="card project-card reveal" data-category="work ai">
+          <div class="project-media" style="--c1:#0b1220;--c2:#134e4a"
+               data-photo="images/projects/call-center-ai.svg" data-video="images/projects/call-center-demo.mp4"
+               data-alt="Illustration of Voice Analytics Pro: call audio, emotion-tagged transcript, customer sentiment and agent performance score"><span class="media-label">Voice Analytics Pro</span></div>
+          <div class="project-body">
+            <div class="project-meta">Work · CardoO Tech Department · 2025 – now</div>
+            <h3>Voice Analytics Pro <span style="font-weight:500;color:var(--muted)">— AI call-center analytics</span></h3>
+            <p>An AI analytics platform for CardoO’s call center. It takes recorded calls (WAV/MP3), analyses the conversation between customer and agent, detects the emotion and tone of both speakers, and gives every agent a <strong>performance score out of 10</strong>. Managers get a dashboard with sentiment trends, call categories, risk levels, resolved vs. unresolved outcomes, first-call resolution and compliance rates — plus an AI assistant, detailed call reports and bilingual Arabic/English search. I use Antigravity, an AI-powered development environment, to manage the code and backend.</p>
+            <ul class="tags"><li class="tag">AI</li><li class="tag">Python</li><li class="tag">Streamlit</li><li class="tag">Speech &amp; emotion analysis</li><li class="tag">Sentiment analysis</li><li class="tag">Call-center analytics</li><li class="tag">Antigravity</li></ul>
+            <details class="case">
+              <summary>Read the case study</summary>
+              <dl>
+                <div><dt>The goal</dt><dd>Help CardoO understand the quality of its customer calls — how customers feel, and how well agents handle each conversation.</dd></div>
+                <div><dt>How it works</dt><dd>
+                  <ol class="flow">
+                    <li><strong>Upload</strong> — recorded customer–agent calls (WAV/MP3) are added to the platform</li>
+                    <li><strong>Analyse</strong> — AI captures the emotion, tone and sentiment of both the customer and the agent</li>
+                    <li><strong>Classify</strong> — each call is categorised (e.g. technical support, delivery, refunds), risk-rated and marked resolved or unresolved</li>
+                    <li><strong>Score</strong> — every agent gets a performance score out of 10, with compliance and first-call-resolution tracking</li>
+                    <li><strong>Report</strong> — dashboards, trends, full call reports and an AI assistant for managers</li>
+                  </ol>
+                </dd></div>
+                <div><dt>My role</dt><dd>Analysing the call-center dashboard and building the solution, using Antigravity to manage the code and backend.</dd></div>
+              </dl>
+            </details>
+          </div>
+        </article>
+        <article class="card project-card reveal" data-category="web">
+          <div class="project-media" style="--c1:#312e81;--c2:#eab308"
+               data-photo="images/projects/currency-exchange.svg"
+               data-alt="Illustration of the Currency Exchange app converting between currencies on a phone"><span class="media-label">Currency Exchange</span></div>
+          <div class="project-body">
+            <div class="project-meta">Third-year team project · 2022</div>
+            <h3>Currency Exchange App</h3>
+            <p>An app that lets you choose the currency of one country and convert an amount into another country’s currency — built as a team in our third year at university.</p>
+            <ul class="tags"><li class="tag">App development</li><li class="tag">Currency conversion</li><li class="tag">Teamwork</li></ul>
+            <details class="case">
+              <summary>How it works</summary>
+              <ol class="flow">
+                <li><strong>Choose</strong> — pick the currency you have and the one you need</li>
+                <li><strong>Enter</strong> — type the amount</li>
+                <li><strong>Convert</strong> — the app applies the exchange rate between the two</li>
+                <li><strong>Result</strong> — see the converted amount instantly, or swap direction</li>
+              </ol>
+            </details>
+            <div class="project-links"><button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="currency">▶ Try the converter</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta reveal">
+        <div>
+          <h2>See more on GitHub.</h2>
+          <p>Smaller experiments, contributions and work in progress.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://github.com/Tap-Kuol">Visit GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark">TK</span>Tap Kuol</a>
+        <p>Software Engineer at CardoO · Computer &amp; Information Sciences graduate, Ain Shams University · from Bentiu, South Sudan.</p>
+      </div>
+      <div class="footer-nav">
+        <div><h4>Site</h4><ul><li><a href="about.html">About</a></li><li><a href="education.html">Education</a></li><li><a href="projects.html">Projects</a></li><li><a href="tours.html">Tours</a></li><li><a href="community.html">Community</a></li></ul></div>
+        <div><h4>Connect</h4><ul><li><a href="mailto:tapkuol34@gmail.com">Email</a></li><li><a href="https://github.com/Tap-Kuol">GitHub</a></li><li><a href="https://www.linkedin.com/in/tap-kuol-73ba93175/">LinkedIn</a></li><li><a href="cv.html">CV</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-current-year>2026</span> Tap Kuol Hoth. All rights reserved.</span>
+      <a href="#main">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

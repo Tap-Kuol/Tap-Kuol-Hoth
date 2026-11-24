@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="t d">
+  <title id="t">AI football performance dashboard</title>
+  <desc id="d">An AI system analyses football match video: players are detected with labelled boxes, the ball moves between them, heat zones show activity, and a side panel shows a selected player's speed, distance, pass accuracy, performance score and skill radar.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06131f"/>
+      <stop offset="1" stop-color="#0c2a22"/>
+    </linearGradient>
+    <linearGradient id="pitch" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#15803d"/>
+      <stop offset="1" stop-color="#166534"/>
+    </linearGradient>
+    <pattern id="stripes" width="64" height="400" patternUnits="userSpaceOnUse">
+      <rect width="32" height="400" fill="#fff" fill-opacity=".05"/>
+    </pattern>
+    <radialGradient id="heatR"><stop offset="0" stop-color="#ef4444" stop-opacity=".55"/><stop offset=".5" stop-color="#f59e0b" stop-opacity=".25"/><stop offset="1" stop-color="#f59e0b" stop-opacity="0"/></radialGradient>
+    <radialGradient id="heatY"><stop offset="0" stop-color="#facc15" stop-opacity=".45"/><stop offset="1" stop-color="#facc15" stop-opacity="0"/></radialGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#132233"/>
+      <stop offset="1" stop-color="#0d1826"/>
+    </linearGradient>
+    <linearGradient id="score" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#4ade80"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".5"/>
+    </filter>
+    <clipPath id="pitchClip"><rect x="26" y="52" width="512" height="356" rx="10"/></clipPath>
+
+    <!-- player marker templates -->
+    <g id="pA"><circle r="7" fill="#f8fafc" stroke="#1d4ed8" stroke-width="3"/></g>
+    <g id="pB"><circle r="7" fill="#ef4444" stroke="#7f1d1d" stroke-width="3"/></g>
+  </defs>
+
+  <style>
+    text { font-family: 'Segoe UI', Inter, Arial, sans-serif; }
+    .m1 { animation: m1 6s ease-in-out infinite; } .m2 { animation: m2 7s ease-in-out infinite; } .m3 { animation: m3 5.5s ease-in-out infinite; }
+    .m4 { animation: m4 6.5s ease-in-out infinite; } .m5 { animation: m5 7.5s ease-in-out infinite; } .m6 { animation: m6 5s ease-in-out infinite; }
+    .ball { offset-path: path("M300 230 L 360 178 L 420 236 L 352 300 L 300 230"); offset-rotate: 0deg; animation: ball 6s ease-in-out infinite; }
+    .trail { stroke-dasharray: 5 6; animation: dash 1s linear infinite; }
+    .box { animation: box 1.6s ease-in-out infinite; }
+    .heat { transform-box: fill-box; transform-origin: center; animation: heat 4s ease-in-out infinite; }
+    .scan { animation: scan 3.2s linear infinite; }
+    .bar { transform-box: fill-box; transform-origin: 0 50%; animation: bar 6s ease-out infinite; }
+    .bar.d2 { animation-delay: .2s; } .bar.d3 { animation-delay: .4s; }
+    .radar { transform-box: fill-box; transform-origin: center; animation: radar 6s ease-out infinite; }
+    .live { animation: blink 1.2s steps(2, jump-none) infinite; }
+    @keyframes m1 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(26px,-14px); } }
+    @keyframes m2 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-22px,18px); } }
+    @keyframes m3 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(18px,20px); } }
+    @keyframes m4 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-16px,-18px); } }
+    @keyframes m5 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(24px,10px); } }
+    @keyframes m6 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-12px,14px); } }
+    @keyframes ball { 0% { offset-distance: 0%; } 100% { offset-distance: 100%; } }
+    @keyframes dash { to { stroke-dashoffset: -22; } }
+    @keyframes box { 0%, 100% { stroke-opacity: .65; } 50% { stroke-opacity: 1; } }
+    @keyframes heat { 0%, 100% { transform: scale(.92); opacity: .8; } 50% { transform: scale(1.08); opacity: 1; } }
+    @keyframes scan { from { transform: translateX(0); } to { transform: translateX(512px); } }
+    @keyframes bar { 0%, 12% { transform: scaleX(0); } 45%, 100% { transform: scaleX(1); } }
+    @keyframes radar { 0%, 12% { transform: scale(.2); opacity: 0; } 45%, 100% { transform: scale(1); opacity: 1; } }
+    @keyframes blink { 0% { opacity: 1; } 100% { opacity: .25; } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .ball { offset-distance: 25%; } }
+  </style>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- ===== header ===== -->
+  <circle class="live" cx="36" cy="30" r="5" fill="#ef4444"/>
+  <text x="48" y="34" font-size="12" font-weight="700" fill="#e2e8f0" letter-spacing="1.5">LIVE MATCH ANALYSIS</text>
+  <text x="538" y="34" text-anchor="end" font-size="11" fill="#86efac">AI detection · player tracking · scoring</text>
+
+  <!-- ===== pitch ===== -->
+  <g filter="url(#shadow)"><rect x="26" y="52" width="512" height="356" rx="10" fill="url(#pitch)"/></g>
+  <g clip-path="url(#pitchClip)">
+    <rect x="26" y="52" width="512" height="356" fill="url(#stripes)"/>
+    <!-- heat zones -->
+    <ellipse class="heat" cx="380" cy="236" rx="90" ry="70" fill="url(#heatR)"/>
+    <ellipse class="heat" cx="190" cy="150" rx="70" ry="55" fill="url(#heatY)" style="animation-delay:-2s"/>
+    <!-- lines -->
+    <g fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="2">
+      <rect x="44" y="68" width="476" height="324"/>
+      <line x1="282" y1="68" x2="282" y2="392"/>
+      <circle cx="282" cy="230" r="44"/>
+      <rect x="44" y="150" width="62" height="160"/><rect x="458" y="150" width="62" height="160"/>
+      <rect x="44" y="196" width="22" height="68"/><rect x="498" y="196" width="22" height="68"/>
+    </g>
+    <circle cx="282" cy="230" r="3" fill="#fff"/>
+    <!-- scanning line -->
+    <g class="scan"><rect x="26" y="52" width="3" height="356" fill="#22d3ee" fill-opacity=".55"/><rect x="0" y="52" width="26" height="356" fill="#22d3ee" fill-opacity=".08"/></g>
+  </g>
+
+  <!-- tracked player trail -->
+  <path class="trail" d="M300 300 C 330 270, 340 250, 360 236" fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- ===== players with detection boxes ===== -->
+  <g font-size="9.5" font-weight="700">
+    <!-- highlighted player #10 -->
+    <g class="m1">
+      <g transform="translate(360 230)">
+        <rect class="box" x="-16" y="-22" width="32" height="40" rx="4" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+        <use href="#pA"/>
+        <rect x="-22" y="-38" width="44" height="14" rx="4" fill="#22d3ee"/><text y="-28" text-anchor="middle" fill="#06131f">#10 · 8.6</text>
+      </g>
+    </g>
+    <g class="m2"><g transform="translate(190 150)"><rect class="box" x="-14" y="-18" width="28" height="34" rx="4" fill="none" stroke="#e2e8f0" stroke-width="1.5"/><use href="#pA"/><text y="-23" text-anchor="middle" fill="#f8fafc">#7</text></g></g>
+    <g class="m3"><g transform="translate(150 290)"><rect class="box" x="-14" y="-18" width="28" height="34" rx="4" fill="none" stroke="#e2e8f0" stroke-width="1.5"/><use href="#pA"/><text y="-23" text-anchor="middle" fill="#f8fafc">#4</text></g></g>
+    <g class="m4"><g transform="translate(250 228)"><rect class="box" x="-14" y="-18" width="28" height="34" rx="4" fill="none" stroke="#e2e8f0" stroke-width="1.5"/><use href="#pA"/><text y="-23" text-anchor="middle" fill="#f8fafc">#8</text></g></g>
+    <g class="m6"><g transform="translate(96 230)"><rect class="box" x="-14" y="-18" width="28" height="34" rx="4" fill="none" stroke="#e2e8f0" stroke-width="1.5"/><use href="#pA"/><text y="-23" text-anchor="middle" fill="#f8fafc">GK</text></g></g>
+
+    <g class="m5"><g transform="translate(420 170)"><rect class="box" x="-14" y="-18" width="28" height="34" rx="4" fill="none" stroke="#fca5a5" stroke-width="1.5"/><use href="#pB"/><text y="-23" text-anchor="middle" fill="#fecaca">#5</text></g></g>
+    <g class="m2"><g transform="translate(440 300)"><rect class="box" x="-14" y="-18" width="28" height="34" rx="4" fill="none" stroke="#fca5a5" stroke-width="1.5"/><use href="#pB"/><text y="-23" text-anchor="middle" fill="#fecaca">#3</text></g></g>
+    <g class="m3"><g transform="translate(330 120)"><rect class="box" x="-14" y="-18" width="28" height="34" rx="4" fill="none" stroke="#fca5a5" stroke-width="1.5"/><use href="#pB"/><text y="-23" text-anchor="middle" fill="#fecaca">#9</text></g></g>
+    <g class="m4"><g transform="translate(500 232)"><rect class="box" x="-14" y="-18" width="28" height="34" rx="4" fill="none" stroke="#fca5a5" stroke-width="1.5"/><use href="#pB"/><text y="-23" text-anchor="middle" fill="#fecaca">GK</text></g></g>
+    <g class="m6"><g transform="translate(330 340)"><rect class="box" x="-14" y="-18" width="28" height="34" rx="4" fill="none" stroke="#fca5a5" stroke-width="1.5"/><use href="#pB"/><text y="-23" text-anchor="middle" fill="#fecaca">#11</text></g></g>
+  </g>
+
+  <!-- ball -->
+  <g class="ball"><circle r="5" fill="#fff" stroke="#0f172a" stroke-width="1.5"/></g>
+
+  <!-- ===== side panel ===== -->
+  <g filter="url(#shadow)"><rect x="556" y="52" width="218" height="356" rx="14" fill="url(#panel)" stroke="#fff" stroke-opacity=".07"/></g>
+  <circle cx="586" cy="86" r="18" fill="#f8fafc" stroke="#1d4ed8" stroke-width="4"/>
+  <text x="586" y="91" text-anchor="middle" font-size="13" font-weight="800" fill="#1d4ed8">10</text>
+  <text x="614" y="82" font-size="13" font-weight="700" fill="#e2e8f0">Player #10</text>
+  <text x="614" y="98" font-size="10.5" fill="#94a3b8">Midfielder · tracked</text>
+
+  <!-- score -->
+  <text x="574" y="132" font-size="10" font-weight="700" fill="#67e8f9" letter-spacing="1.5">PERFORMANCE SCORE</text>
+  <text x="756" y="134" text-anchor="end" font-size="20" font-weight="800" fill="#4ade80">8.6</text>
+  <rect x="574" y="142" width="182" height="8" rx="4" fill="#1e2b3c"/>
+  <rect class="bar" x="574" y="142" width="157" height="8" rx="4" fill="url(#score)"/>
+
+  <!-- stats -->
+  <g font-size="11">
+    <text x="574" y="178" fill="#94a3b8">Top speed</text><text x="756" y="178" text-anchor="end" font-weight="700" fill="#e2e8f0">28.4 km/h</text>
+    <rect x="574" y="184" width="182" height="5" rx="2.5" fill="#1e2b3c"/><rect class="bar d2" x="574" y="184" width="138" height="5" rx="2.5" fill="#22d3ee"/>
+    <text x="574" y="208" fill="#94a3b8">Distance</text><text x="756" y="208" text-anchor="end" font-weight="700" fill="#e2e8f0">9.8 km</text>
+    <rect x="574" y="214" width="182" height="5" rx="2.5" fill="#1e2b3c"/><rect class="bar d3" x="574" y="214" width="150" height="5" rx="2.5" fill="#a78bfa"/>
+    <text x="574" y="238" fill="#94a3b8">Pass accuracy</text><text x="756" y="238" text-anchor="end" font-weight="700" fill="#e2e8f0">87%</text>
+    <rect x="574" y="244" width="182" height="5" rx="2.5" fill="#1e2b3c"/><rect class="bar" x="574" y="244" width="158" height="5" rx="2.5" fill="#facc15"/>
+  </g>
+
+  <!-- radar -->
+  <text x="574" y="276" font-size="10" font-weight="700" fill="#67e8f9" letter-spacing="1.5">SKILL PROFILE</text>
+  <g transform="translate(665 338)">
+    <g fill="none" stroke="#2b3a4f" stroke-width="1">
+      <polygon points="0,-52 45,-26 45,26 0,52 -45,26 -45,-26"/>
+      <polygon points="0,-35 30,-17.5 30,17.5 0,35 -30,17.5 -30,-17.5"/>
+      <path d="M0 -52V52M45 -26L-45 26M45 26L-45 -26"/>
+    </g>
+    <polygon class="radar" points="0,-46 38,-22 32,18 0,40 -36,21 -28,-16" fill="#22d3ee" fill-opacity=".28" stroke="#22d3ee" stroke-width="2"/>
+    <g font-size="8.5" fill="#94a3b8" text-anchor="middle">
+      <text y="-56">Pace</text><text x="56" y="-28">Passing</text><text x="56" y="34">Vision</text>
+      <text y="64">Stamina</text><text x="-56" y="34">Defence</text><text x="-56" y="-28">Dribbling</text>
+    </g>
+  </g>
+</svg>

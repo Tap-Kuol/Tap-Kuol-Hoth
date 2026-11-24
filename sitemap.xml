@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- If you move to a custom domain, replace https://tap-kuol.github.io with it. Add a <url> for each new note. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://tap-kuol.github.io/</loc><priority>1.0</priority></url>
+  <url><loc>https://tap-kuol.github.io/about.html</loc><priority>0.8</priority></url>
+  <url><loc>https://tap-kuol.github.io/education.html</loc><priority>0.8</priority></url>
+  <url><loc>https://tap-kuol.github.io/projects.html</loc><priority>0.8</priority></url>
+  <url><loc>https://tap-kuol.github.io/tours.html</loc><priority>0.8</priority></url>
+  <url><loc>https://tap-kuol.github.io/community.html</loc><priority>0.7</priority></url>
+  <url><loc>https://tap-kuol.github.io/cv.html</loc><priority>0.7</priority></url>
+</urlset>

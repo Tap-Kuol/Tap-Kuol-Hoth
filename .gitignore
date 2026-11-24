@@ -1,0 +1,10 @@
+# Private / local-only files — never published
+Tap_Kuol_Hoth_CV.pdf
+*.pdf
+.claude/
+upload-to-github/
+
+# System files
+Thumbs.db
+desktop.ini
+.DS_Store
