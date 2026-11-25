@@ -18,12 +18,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/style.css?v=3">
-<link rel="stylesheet" href="css/theme.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/theme.css?v=4">
 <script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')})()</script>
-<script src="js/main.js?v=3" defer></script>
-<script src="js/demos.js?v=3" defer></script>
-<script src="js/theme.js?v=3" defer></script>
+<script src="js/main.js?v=4" defer></script>
+<script src="js/demos.js?v=4" defer></script>
+<script src="js/theme.js?v=4" defer></script>
+<script src="js/tech.js?v=4" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -77,7 +78,7 @@
       <div class="reveal">
         <span class="status"><span class="status-dot"></span>Software Engineer at CardoO</span>
         <h1>Tap Kuol Hoth</h1>
-        <p class="hero-role"><span class="prompt" aria-hidden="true">&gt;</span> Software Engineer · <em>AI &amp; Automation</em></p>
+        <p class="hero-role"><span class="prompt" aria-hidden="true">&gt;</span> Software Engineer <span class="sep" aria-hidden="true">·</span> <span class="sr-only">AI &amp; Automation</span><em aria-hidden="true" data-rotate="AI &amp; Automation|Odoo ERP|Web Development">AI &amp; Automation</em></p>
         <p class="lead">I build ERP, web and AI automation software at CardoO. Ain Shams University graduate, from Bentiu, South Sudan.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#work">View my work
@@ -89,7 +90,7 @@
       <div class="reveal">
         <!-- Profile photo: images/portrait-executive.jpg (4:5) -->
         <div class="tech-portrait">
-          <img src="images/portrait-executive.jpg" width="800" height="1000" alt="Black-and-white portrait of Tap Kuol Hoth in a dark suit, seated in a leather chair in front of bookshelves">
+          <img src="images/portrait-executive.jpg" width="800" height="1000" alt="Black-and-white portrait of Tap Kuol Hoth in a dark suit, seated in a leather chair in front of bookshelves"><i class="scan" aria-hidden="true"></i><i class="hud" aria-hidden="true"></i>
           <ul class="chips" aria-label="Main technologies">
             <li>Odoo</li><li>Python</li><li>n8n</li><li>AI</li>
           </ul>
@@ -105,17 +106,29 @@
   <!-- ============ CODE WINDOW ============ -->
   <section class="code-section">
     <div class="container">
+      <dl class="hud-stats reveal">
+        <div><dt>projects</dt><dd data-count>4</dd></div>
+        <div><dt>programming languages</dt><dd data-count>6</dd></div>
+        <div><dt>interactive demos</dt><dd data-count>3</dd></div>
+        <div><dt>countries in my journey</dt><dd data-count>3</dd></div>
+      </dl>
+      <div class="code-grid">
       <div class="code-window reveal">
         <div class="code-bar" aria-hidden="true"><i></i><i></i><i></i><span>tap-kuol-hoth.js</span></div>
 <pre class="code" tabindex="0" aria-label="Profile of Tap Kuol Hoth written as code"><code><span><b>const</b> <u>engineer</u> = {</span>
 <span>  name: <s>"Tap Kuol Hoth"</s>,</span>
 <span>  role: <s>"Software Engineer"</s>,</span>
 <span>  company: <s>"CardoO"</s>,</span>
-<span>  degree: <s>"B.Sc. Computer &amp; Information Sciences, Ain Shams University"</s>,</span>
+<span>  degree: <s>"Computer &amp; Information Sciences"</s>,</span>
+<span>  university: <s>"Ain Shams University"</s>,</span>
 <span>  builds: [<s>"ERP modules"</s>, <s>"websites"</s>, <s>"AI automation"</s>],</span>
-<span>  languages: [<s>"C++"</s>, <s>"C#"</s>, <s>"Java"</s>, <s>"Python"</s>, <s>"SQL"</s>, <s>"JavaScript"</s>],</span>
+<span>  languages: [<s>"C++"</s>, <s>"C#"</s>, <s>"Java"</s>,</span>
+<span>    <s>"Python"</s>, <s>"SQL"</s>, <s>"JavaScript"</s>],</span>
 <span>  journey: [<s>"Bentiu"</s>, <s>"Khartoum"</s>, <s>"Cairo"</s>],</span>
 <span>};<i class="caret" aria-hidden="true"></i></span></code></pre>
+      </div>
+      <!-- Interactive terminal: built by js/tech.js -->
+      <div class="code-window terminal reveal" data-terminal hidden></div>
       </div>
       <ul class="org-row reveal" aria-label="Studied, worked, trained and led at">
         <li>Ain Shams University</li><li>CardoO</li><li>T-Plus Training Center</li><li>Jikany Community in Egypt</li>
