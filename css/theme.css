@@ -39,15 +39,14 @@ h1, h2 { font-weight: 700; letter-spacing: -.03em; }
 .hero-role { font-family: var(--font-mono); font-size: clamp(1rem, 1.8vw, 1.25rem); color: var(--text); margin-bottom: 1.25rem; }
 .hero-role .prompt { color: var(--warm); }
 .hero-role em { font-style: normal; color: var(--accent); }
-.tech-portrait { position: relative; max-width: 420px; margin: 0 auto; aspect-ratio: 1; }
-.tech-portrait::before { content: ""; position: absolute; inset: 4%; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(34, 211, 238, .8), transparent 62%), radial-gradient(circle at 72% 62%, rgba(139, 92, 246, .85), transparent 64%), #0d1a33; box-shadow: 0 0 90px -10px rgba(34, 211, 238, .35); }
-.tech-portrait img { position: absolute; left: 7%; bottom: 4%; width: 86%; height: auto; border-radius: 0 0 46% 46%; -webkit-mask-image: linear-gradient(#000 80%, transparent 99%); mask-image: linear-gradient(#000 80%, transparent 99%); }
-.orbit { position: absolute; inset: -6%; width: 112%; height: 112%; stroke: var(--accent); stroke-width: 1.2; opacity: .55; animation: orbit 60s linear infinite; }
-@keyframes orbit { to { transform: rotate(360deg); } }
+.tech-portrait { position: relative; max-width: 400px; margin: 0 auto; aspect-ratio: 4 / 5; isolation: isolate; }
+.tech-portrait::before { content: ""; position: absolute; inset: -14%; z-index: -1; background: radial-gradient(closest-side at 30% 35%, rgba(34, 211, 238, .34), transparent), radial-gradient(closest-side at 70% 68%, rgba(139, 92, 246, .42), transparent); pointer-events: none; }
+.tech-portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; border: 2px solid transparent; background: linear-gradient(140deg, #22d3ee, #24344f 38%, #24344f 62%, #8b5cf6) border-box; box-shadow: 0 34px 70px -30px rgba(0, 0, 0, .85); }
+.tech-portrait::after { content: ""; position: absolute; inset: 2px; border-radius: 22px; pointer-events: none; background: linear-gradient(150deg, rgba(34, 211, 238, .16), transparent 38%, transparent 62%, rgba(139, 92, 246, .24)); }
 .chips { list-style: none; margin: 0; padding: 0; }
-.chips li { position: absolute; font-family: var(--font-mono); font-size: .78rem; padding: .35rem .7rem; border-radius: 8px; color: var(--ink); background: color-mix(in srgb, var(--surface) 86%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border)); backdrop-filter: blur(8px); }
-.chips li:nth-child(1) { left: -3%; top: 26%; } .chips li:nth-child(2) { right: -4%; top: 20%; }
-.chips li:nth-child(3) { left: -1%; bottom: 20%; } .chips li:nth-child(4) { right: 0; bottom: 24%; }
+.chips li { position: absolute; z-index: 1; font-family: var(--font-mono); font-size: .78rem; padding: .35rem .7rem; border-radius: 8px; color: var(--ink); background: color-mix(in srgb, var(--surface) 86%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border)); backdrop-filter: blur(8px); }
+.chips li:nth-child(1) { left: -22px; top: 12%; } .chips li:nth-child(2) { right: -26px; top: 22%; }
+.chips li:nth-child(3) { left: -18px; bottom: 22%; } .chips li:nth-child(4) { right: -16px; bottom: 12%; }
 .hero-socials { display: flex; justify-content: center; gap: .5rem; margin-top: 1rem; }
 .hero-socials a { display: inline-flex; gap: .5rem; align-items: center; padding: .6rem .8rem; color: var(--muted); font-size: .9rem; }
 .hero-socials a:hover { color: var(--accent); }
@@ -138,14 +137,14 @@ h1, h2 { font-weight: 700; letter-spacing: -.03em; }
   .grid-4 { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
-  .tech-portrait { max-width: 250px; }
+  .tech-portrait { max-width: 270px; }
   .chips li { font-size: .7rem; }
   .grid-4 { grid-template-columns: 1fr; } .photo-strip { flex-direction: column; } .photo-strip a { width: 100%; flex: none !important; }
   .code { font-size: .76rem; padding: 1rem; white-space: pre-wrap; overflow-wrap: anywhere; }
   .stack dt { width: 100%; }
   .pipeline li { padding: .8rem; }
 }
-@media (prefers-reduced-motion: reduce) { .orbit, .wave i, .pipeline li, .caret, .code code > span { animation: none !important; } .wave i:nth-child(2n) { height: 80%; } .wave i:nth-child(3n) { height: 55%; } }
+@media (prefers-reduced-motion: reduce) { .wave i, .pipeline li, .caret, .code code > span { animation: none !important; } .wave i:nth-child(2n) { height: 80%; } .wave i:nth-child(3n) { height: 55%; } }
 
 /* ==========================================================================
    Inner pages

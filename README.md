@@ -28,8 +28,7 @@ Search all files for these placeholders and replace them:
 - `Project One…Four`, `Destination One…Six`, `Country A…E`, `Certification Name`
 
 ### 2. Photos (biggest impact)
-- **Portrait:** replace the `TK` initials inside `.portrait` (Home and About) with
-  `<img src="images/portrait.webp" alt="Portrait of Tap Kuol">`.
+- **Portrait:** replace `images/portrait-executive.jpg` (4:5 shape, used on Home and About).
 - **Projects and tours:** put `<img src="images/….webp" alt="…" loading="lazy">` as the first child of `.project-media` or `.tour-media`.
 - **Robotic car photo and video:** the card currently shows an animated illustration, `images/robotic-car.svg`. To use a real photo, save it as `images/robotic-car.jpg` and change `data-photo` to that file in `index.html` and `projects.html`. For a video, save `images/robotic-car.mp4`. The photo fills the card, and a **Watch video** button appears for the video. Both open full-screen when clicked. To use YouTube instead, put the YouTube link in the card's `data-video` (in `index.html` and `projects.html`). Any other project card can use the same `data-photo` / `data-video` attributes.
 - **Screen recordings (CardoO work):** save a short, muted clip as `images/projects/cardoo-demo.mp4` (blur any customer data and ask your manager first). A **Watch video** button appears on that card automatically.
