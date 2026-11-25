@@ -137,7 +137,6 @@
     ['About', 'page', go('about.html')], ['Education', 'page', go('education.html')], ['Projects', 'page', go('projects.html')],
     ['Tours', 'page', go('tours.html')], ['Community', 'page', go('community.html')], ['CV', 'page', go('cv.html')],
     ['Home', 'page', go('index.html')], ['Contact', 'section', go('index.html#contact')],
-    ['AI call-analytics tool', 'project', go('projects.html')],
     ['Try the football analysis', 'demo', demo('football')], ['Try the Rover-1 simulator', 'demo', demo('rover')], ['Try the currency converter', 'demo', demo('currency')],
     ['Switch light / dark theme', 'action', function () { document.querySelector('.theme-toggle').click(); }],
     ['Send an email', 'action', go('mailto:tapkuol34@gmail.com')],
