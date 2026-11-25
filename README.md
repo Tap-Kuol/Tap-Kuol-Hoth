@@ -10,7 +10,7 @@ A fast, static personal site (no build step) for GitHub Pages. It has light/dark
 | `about.html` | Story, optional intro video, experience timeline, skills |
 | `education.html` | Degrees, certifications, achievements |
 | `projects.html` | Filterable project cards with expandable case studies |
-| `tours.html` | Interactive map, auto-counted stats, filterable tour cards |
+| `tours.html` | Filterable tour cards, one photo per trip (linked from Home, About and the footer) |
 | `notes.html` | Blog / notes list |
 | `notes-welcome.html` | Template for a single note (copy it for each new post) |
 | `cv.html` | One-page CV in the site's style, with a **Save as PDF** button |
@@ -32,7 +32,7 @@ Search all files for these placeholders and replace them:
   `<img src="images/portrait.webp" alt="Portrait of Tap Kuol">`.
 - **Projects and tours:** put `<img src="images/….webp" alt="…" loading="lazy">` as the first child of `.project-media` or `.tour-media`.
 - **Robotic car photo and video:** the card currently shows an animated illustration, `images/robotic-car.svg`. To use a real photo, save it as `images/robotic-car.jpg` and change `data-photo` to that file in `index.html` and `projects.html`. For a video, save `images/robotic-car.mp4`. The photo fills the card, and a **Watch video** button appears for the video. Both open full-screen when clicked. To use YouTube instead, put the YouTube link in the card's `data-video` (in `index.html` and `projects.html`). Any other project card can use the same `data-photo` / `data-video` attributes.
-- **Screen recordings (CardoO work):** save short, muted clips as `images/projects/cardoo-demo.mp4` and `images/projects/call-center-demo.mp4` (blur any customer data and ask your manager first). A **Watch video** button appears on those cards automatically.
+- **Screen recordings (CardoO work):** save a short, muted clip as `images/projects/cardoo-demo.mp4` (blur any customer data and ask your manager first). A **Watch video** button appears on that card automatically.
 - **Logos:** in the logo strip, use `<li><img src="images/logos/name.svg" alt="Name"></li>`.
 - **Testimonials:** put an `<img>` inside `.avatar`.
 - **Keep it fast:** convert photos to WebP at about 1600px wide, under 200 KB each. https://squoosh.app does this for free.

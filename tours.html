@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tours — Tap Kuol Hoth</title>
 <meta name="description" content="Travel, culture and team trips by Tap Kuol Hoth.">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#070b14">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tap Kuol Hoth">
 <meta property="og:title" content="Tours — Tap Kuol Hoth">
@@ -17,12 +17,12 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
-<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<link rel="stylesheet" href="css/theme.css">
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')})()</script>
 <script src="js/main.js" defer></script>
+<script src="js/theme.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -35,12 +35,12 @@
       <li><a href="about.html">About</a></li>
       <li><a href="education.html">Education</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="tours.html" aria-current="page">Tours</a></li>
       <li><a href="community.html">Community</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li class="nav-mobile-only"><a href="cv.html">CV</a></li>
     </ul>
     <div class="nav-actions">
+      <button class="icon-btn" type="button" data-cmd aria-label="Open command menu" title="Command menu (Ctrl+K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
       <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
@@ -54,7 +54,7 @@
 </header>
 
 <main id="main">
-  <section class="page-header">
+  <section class="page-header soft">
     <div class="container reveal">
       <span class="eyebrow">Tours</span>
       <h1>Places I’ve been, people I’ve met.</h1>
@@ -62,22 +62,8 @@
     </div>
   </section>
 
-  <!-- Stats are counted automatically from the tour cards below -->
-  <section class="container" style="padding-top:2.5rem">
-    <div class="stats reveal">
-      <div class="stat"><div class="stat-value" data-stat="tours">0</div><div class="stat-label">Tours</div></div>
-      <div class="stat"><div class="stat-value" data-stat="countries">0</div><div class="stat-label">Countries</div></div>
-      <div class="stat"><div class="stat-value" data-stat="types">0</div><div class="stat-label">Kinds of tour</div></div>
-      <div class="stat"><div class="stat-value" data-stat="span">—</div><div class="stat-label">Years on the road</div></div>
-    </div>
-  </section>
-
   <section class="section" style="padding-top:3rem">
     <div class="container">
-      <!-- Map pins come from each tour card's data-lat / data-lng -->
-      <div class="map-wrap reveal">
-        <div id="tour-map" role="region" aria-label="Map of tours"></div>
-      </div>
       <div class="filters reveal" data-filter-group="tour-grid" role="group" aria-label="Filter tours">
         <button class="filter" type="button" data-filter="all" aria-pressed="true">All tours</button>
         <button class="filter" type="button" data-filter="travel" aria-pressed="false">Travel</button>
@@ -90,16 +76,13 @@
       <!--
         Each tour card:
           data-category = travel | culture | speaking | study | community (space-separated for several)
-          data-country  = country name (used for the Countries count)
-          data-year     = year (used for the Years count)
-          data-lat / data-lng = coordinates for the map pin (right-click a place in Google Maps to copy them)
         To add a photo, put <img src="images/tour-1.jpg" alt="..."> as the first child of .tour-media.
       -->
       <div class="masonry" id="tour-grid">
 
-        <article class="card tour-card reveal" data-category="team travel" data-country="Egypt" data-year="2026" data-lat="29.6000" data-lng="32.3167">
+        <article class="card tour-card reveal" data-category="team travel">
           <div class="tour-media" style="--c1:#0369a1;--c2:#0ea5e9"
-               data-gallery="images/tours/ain-sokhna-1.jpg, images/tours/ain-sokhna-2.jpg"
+               data-gallery="images/tours/ain-sokhna-1.jpg"
                data-alt="CardoO team trip · Ain Sokhna, Red Sea · 2 July 2026">
             <img src="images/tours/ain-sokhna-1.jpg" width="788" height="1400" alt="Tap Kuol Hoth smiling on a boat on the Red Sea at Ain Sokhna" loading="lazy">
             <span class="tour-chip">Team trip</span>
@@ -111,12 +94,11 @@
             <div class="tour-facts">
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>2 July 2026</span>
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>With the CardoO team</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>2 photos</span>
             </div>
           </div>
         </article>
 
-        <article class="card tour-card reveal" data-category="culture" data-country="Egypt" data-year="2024" data-lat="31.2089" data-lng="29.9092">
+        <article class="card tour-card reveal" data-category="culture">
           <div class="tour-media" style="--c1:#1e293b;--c2:#b45309"
                data-gallery="images/tours/library-alexandria-2024-1.jpg"
                data-alt="Bibliotheca Alexandrina · 4 February 2024">
@@ -134,9 +116,9 @@
           </div>
         </article>
 
-        <article class="card tour-card reveal" data-category="travel" data-country="Egypt" data-year="2022" data-lat="31.2001" data-lng="29.9187">
+        <article class="card tour-card reveal" data-category="travel">
           <div class="tour-media" style="--c1:#0369a1;--c2:#f59e0b"
-               data-gallery="images/tours/alexandria-2022-4.jpg, images/tours/alexandria-2022-1.jpg, images/tours/alexandria-2022-2.jpg, images/tours/alexandria-2022-3.jpg"
+               data-gallery="images/tours/alexandria-2022-4.jpg"
                data-alt="Alexandria, Egypt · 20 September 2022">
             <img src="images/tours/alexandria-2022-4.jpg" width="1062" height="1307" alt="Black-and-white photo of two friends walking on a busy Alexandria beach below the city’s high-rise skyline" loading="lazy">
             <span class="tour-chip">Travel</span>
@@ -148,7 +130,6 @@
             <div class="tour-facts">
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>20 September 2022</span>
               <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>With friends</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg>4 photos</span>
             </div>
           </div>
         </article>
@@ -158,7 +139,7 @@
       </div>
       <!-- Copy this example card into the grid above for each new tour (it is inside <template>, so it is never shown). -->
       <template id="tour-card-example">
-        <article class="card tour-card reveal" data-category="travel" data-country="Country A" data-year="2025" data-lat="-1.2864" data-lng="36.8172">
+        <article class="card tour-card reveal" data-category="travel">
           <div class="tour-media" style="--c1:#0f766e;--c2:#f59e0b">
             <span class="tour-chip">Travel</span>
             <div class="tour-place"><strong>Destination One</strong><span>Country A · 2025</span></div>

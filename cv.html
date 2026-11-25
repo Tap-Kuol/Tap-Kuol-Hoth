@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CV — Tap Kuol Hoth</title>
 <meta name="description" content="Curriculum vitae of Tap Kuol Hoth, Software Engineer at CardoO.">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#070b14">
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Tap Kuol Hoth">
 <meta property="og:title" content="CV — Tap Kuol Hoth">
@@ -17,10 +17,12 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
-<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="css/theme.css" media="screen">
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')})()</script>
 <script src="js/main.js" defer></script>
+<script src="js/theme.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -33,12 +35,12 @@
       <li><a href="about.html">About</a></li>
       <li><a href="education.html">Education</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="tours.html">Tours</a></li>
       <li><a href="community.html">Community</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li class="nav-mobile-only"><a href="cv.html" aria-current="page">CV</a></li>
     </ul>
     <div class="nav-actions">
+      <button class="icon-btn" type="button" data-cmd aria-label="Open command menu" title="Command menu (Ctrl+K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
       <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
@@ -85,7 +87,7 @@
           <div>
             <section class="cv-section">
               <h2>Profile</h2>
-              <p class="cv-summary">Software Engineer in CardoO’s Tech Department, building AI call-center analytics, Odoo ERP customisations, the company website and n8n automations. B.Sc. in Computer &amp; Information Sciences (Information Systems), Ain Shams University, with CCNA/CCNP training. Learned to program from scratch and studied across three countries — adaptable, persistent and quick to learn.</p>
+              <p class="cv-summary">Software Engineer in CardoO’s Tech Department, working on AI call analytics, Odoo ERP customisations, the company website and n8n automations. B.Sc. in Computer &amp; Information Sciences (Information Systems), Ain Shams University, with CCNA/CCNP training. Learned to program from scratch and studied across three countries — adaptable, persistent and quick to learn.</p>
             </section>
 
             <section class="cv-section">
@@ -96,7 +98,7 @@
                 <ul>
                   <li>Manage and customise the Odoo modules that run CardoO’s ERP, using Git/GitHub to version and deploy module changes.</li>
                   <li>Develop the CardoO website and build AI-powered messaging workflows with n8n.</li>
-                  <li>Built Voice Analytics Pro (Python, Streamlit): AI call analysis of customer and agent emotion, agent scores out of 10, sentiment, risk and compliance dashboards.</li>
+                  <li>Contributed to an AI call-analytics tool.</li>
                 </ul>
               </div>
 
@@ -162,7 +164,7 @@
               </div>
               <div class="cv-group">
                 <h3>ERP, AI &amp; automation</h3>
-                <ul class="tags"><li class="tag">Odoo</li><li class="tag">n8n</li><li class="tag">AI automation</li><li class="tag">Speech &amp; emotion AI</li></ul>
+                <ul class="tags"><li class="tag">Odoo</li><li class="tag">n8n</li><li class="tag">AI automation</li><li class="tag">AI call analytics</li></ul>
               </div>
               <div class="cv-group">
                 <h3>Databases</h3>

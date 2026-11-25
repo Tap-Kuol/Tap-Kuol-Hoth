@@ -747,12 +747,12 @@ p { margin: 0 0 1em; }
   .section { padding: 0 !important; }
   .page-header { display: none; }
   @page { size: A4; margin: 12mm; }
-  html, body { font-size: 13px !important; line-height: 1.5; }
+  html, body { font-size: 12px !important; line-height: 1.42; }
   .cv-cols { grid-template-columns: 1.75fr 1fr !important; gap: 1.6rem !important; }
   .cv-contact { text-align: right !important; }
   .cv-head { padding-bottom: .9rem; margin-bottom: 1.1rem; }
   .cv-head h1 { font-size: 2.3rem !important; }
-  .cv-section { margin-bottom: 1rem; break-inside: avoid; }
+  .cv-section { margin-bottom: .8rem; break-inside: avoid; }
   .cv-section h2 { margin-bottom: .55rem; }
   .cv-item { margin-bottom: .6rem; break-inside: avoid; }
   .cv-summary { font-size: 1rem; line-height: 1.5; }
@@ -764,4 +764,5 @@ p { margin: 0 0 1em; }
   :root:root:root { --bg: #fff; --surface: #fff; --bg-alt: #f3f1ec; --text: #16181d; --ink: #0f172a; --muted: #5b6170; --faint: #8b909c; --border: #e4e1da; --accent: #c2410c; }
   .reveal { opacity: 1 !important; transform: none !important; }
   body { background: #fff; color: #000; }
+  :root:root:root { color-scheme: light; }
 }

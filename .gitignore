@@ -3,6 +3,7 @@ Tap_Kuol_Hoth_CV.pdf
 *.pdf
 .claude/
 upload-to-github/
+removed-photos/
 
 # System files
 Thumbs.db

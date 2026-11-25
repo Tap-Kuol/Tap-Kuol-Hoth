@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projects — Tap Kuol Hoth</title>
 <meta name="description" content="Selected projects and case studies by Tap Kuol Hoth.">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#070b14">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tap Kuol Hoth">
 <meta property="og:title" content="Projects — Tap Kuol Hoth">
@@ -17,11 +17,13 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
-<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="css/theme.css">
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')})()</script>
 <script src="js/main.js" defer></script>
 <script src="js/demos.js" defer></script>
+<script src="js/theme.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -34,12 +36,12 @@
       <li><a href="about.html">About</a></li>
       <li><a href="education.html">Education</a></li>
       <li><a href="projects.html" aria-current="page">Projects</a></li>
-      <li><a href="tours.html">Tours</a></li>
       <li><a href="community.html">Community</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li class="nav-mobile-only"><a href="cv.html">CV</a></li>
     </ul>
     <div class="nav-actions">
+      <button class="icon-btn" type="button" data-cmd aria-label="Open command menu" title="Command menu (Ctrl+K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
       <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
@@ -54,6 +56,7 @@
 
 <main id="main">
   <section class="page-header">
+    <canvas class="neural" data-neural="circuit" aria-hidden="true"></canvas>
     <div class="container reveal">
       <span class="eyebrow">Projects</span>
       <h1>Things I’ve designed, built and shipped.</h1>
@@ -77,33 +80,45 @@
                images/robotic-car.svg  (animated illustration shown on the card; replace with a .jpg of your real car and update data-photo)
                images/robotic-car.mp4  (video, opens with the play button)
              They appear automatically once the files exist. For a YouTube video, put its link in data-video instead. -->
-        <article class="card project-card reveal" data-category="robotics">
-          <div class="project-media" style="--c1:#0f172a;--c2:#0891b2"
-               data-photo="images/robotic-car.svg" data-video="images/robotic-car.mp4"
-               data-alt="Rover-1, our obstacle-avoiding robotic car, detecting a box and turning away"><span class="media-label">Rover-1</span></div>
+        <article class="card project-card wide reveal" data-category="work ai">
+          <div class="project-media" style="--c1:#070b14;--c2:#14213f"
+               data-photo="images/projects/ai-call-analytics.svg"
+               data-alt="Concept illustration: audio flows into AI and comes out as insights"><span class="media-label">AI call analytics</span></div>
           <div class="project-body">
-            <div class="project-meta">Robotics · 2019 · First-year team of 4</div>
-            <h3>Rover-1 <span style="font-weight:500;color:var(--muted)">— obstacle-avoiding robotic car</span></h3>
-            <p>Rover-1 is a four-wheel-drive robotic car that my team of four built in our first year. It finds its own way around obstacles. Its servo-mounted ultrasonic sensor scans ahead, and when something blocks the path the car turns left, turns right or reverses. It can also be controlled from a laptop. Programmed in C++.</p>
-            <ul class="tags"><li class="tag">C++</li><li class="tag">Robotics</li><li class="tag">Embedded systems</li><li class="tag">Ultrasonic sensor</li><li class="tag">Obstacle avoidance</li></ul>
+            <div class="project-meta">Work · CardoO Tech Department · 2025 to now</div>
+            <h3>AI call-analytics tool</h3>
+            <p>Contributed to an AI call-analytics tool in CardoO’s Tech Department. It is an internal company tool, so I keep the details private.</p>
+            <ul class="tags"><li class="tag">AI</li><li class="tag">Call analytics</li></ul>
+          </div>
+        </article>
+        <article class="card project-card reveal" data-category="work web">
+          <div class="project-media" style="--c1:#1e293b;--c2:#f97316"
+               data-photo="images/projects/cardoo-erp.svg" data-video="images/projects/cardoo-demo.mp4"
+               data-alt="Illustration of an ERP dashboard and an AI automation workflow at CardoO"><span class="media-label">CardoO · ERP &amp; automation</span></div>
+          <div class="project-body">
+            <div class="project-meta">Work · CardoO Tech Department · 2025 – now</div>
+            <h3>ERP, website &amp; AI automation at CardoO</h3>
+            <p>At CardoO, an Egyptian smart-devices and IoT company, I manage and customise the Odoo modules that run the company’s ERP, maintain the CardoO website, build AI-powered automated messaging with n8n, and contribute to an AI call-analytics tool (see the project above).</p>
+            <ul class="tags"><li class="tag">Odoo ERP</li><li class="tag">n8n</li><li class="tag">AI automation</li><li class="tag">Git &amp; GitHub</li><li class="tag">Web development</li></ul>
             <details class="case">
-              <summary>Read the case study</summary>
-              <dl>
-                <div><dt>The goal</dt><dd>Build a small car that can drive itself without crashing: notice when something is in its way and choose a new direction on its own, while still letting us take control from a laptop.</dd></div>
-                <div><dt>How we built it</dt><dd>Our team of four assembled a four-wheel-drive chassis with four DC motors, mounted an ultrasonic distance sensor on a servo at the front, and wired everything to the controller board. We wrote the control program in C++. It reads the distance ahead and, when the path is blocked, uses the servo to look left and right before deciding to turn left, turn right or back up.</dd></div>
-                <div><dt>How it decides</dt><dd>
-                  <ol class="flow">
-                    <li><strong>Measure</strong> — the ultrasonic sensor checks the distance ahead</li>
-                    <li><strong>Decide</strong> — the C++ program compares it with a safe distance</li>
-                    <li><strong>Path clear?</strong> Keep driving. <strong>Blocked?</strong> Stop</li>
-                    <li><strong>Scan</strong> — the servo turns the sensor left and right</li>
-                    <li><strong>Act</strong> — turn toward the clearer side, or reverse if both are blocked</li>
-                  </ol>
-                </dd></div>
-                <div><dt>The result</dt><dd>A working car, built in 2019, that avoids obstacles on its own and can also be driven from a laptop. It brought together mechanics, electronics and software in one project.</dd></div>
-              </dl>
+              <summary>How it works</summary>
+              <p class="flow-label">ERP customisation</p>
+              <ol class="flow">
+                <li><strong>Customise</strong> — change an Odoo module in code</li>
+                <li><strong>Version</strong> — commit and push the change with Git/GitHub</li>
+                <li><strong>Deploy</strong> — the updated module runs in CardoO’s ERP</li>
+              </ol>
+              <p class="flow-label">AI messaging automation</p>
+              <ol class="flow">
+                <li><strong>Trigger</strong> — an event happens, such as a new order</li>
+                <li><strong>n8n workflow</strong> — picks up the event automatically</li>
+                <li><strong>AI step</strong> — writes a personalised reply</li>
+                <li><strong>Send</strong> — the message goes to the customer</li>
+              </ol>
             </details>
-            <div class="project-links"><button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="rover">▶ Try the simulator</button></div>
+            <div class="project-links">
+              <a class="link-arrow" href="https://cardoo.co/" target="_blank" rel="noopener">Visit CardoO <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
           </div>
         </article>
         <article class="card project-card reveal" data-category="ai">
@@ -135,61 +150,33 @@
             <div class="project-links"><button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="football">▶ Try the player analysis</button></div>
           </div>
         </article>
-        <article class="card project-card reveal" data-category="work web">
-          <div class="project-media" style="--c1:#1e293b;--c2:#f97316"
-               data-photo="images/projects/cardoo-erp.svg" data-video="images/projects/cardoo-demo.mp4"
-               data-alt="Illustration of an ERP dashboard and an AI automation workflow at CardoO"><span class="media-label">CardoO · ERP &amp; automation</span></div>
+        <article class="card project-card reveal" data-category="robotics">
+          <div class="project-media" style="--c1:#0f172a;--c2:#0891b2"
+               data-photo="images/robotic-car.svg" data-video="images/robotic-car.mp4"
+               data-alt="Rover-1, our obstacle-avoiding robotic car, detecting a box and turning away"><span class="media-label">Rover-1</span></div>
           <div class="project-body">
-            <div class="project-meta">Work · CardoO Tech Department · 2025 – now</div>
-            <h3>ERP, website &amp; AI automation at CardoO</h3>
-            <p>At CardoO, an Egyptian smart-devices and IoT company, I manage and customise the Odoo modules that run the company’s ERP, maintain the CardoO website, build AI-powered automated messaging with n8n, and analyse call-center conversations with AI (see the next project).</p>
-            <ul class="tags"><li class="tag">Odoo ERP</li><li class="tag">n8n</li><li class="tag">AI automation</li><li class="tag">Git &amp; GitHub</li><li class="tag">Web development</li></ul>
-            <details class="case">
-              <summary>How it works</summary>
-              <p class="flow-label">ERP customisation</p>
-              <ol class="flow">
-                <li><strong>Customise</strong> — change an Odoo module in code</li>
-                <li><strong>Version</strong> — commit and push the change with Git/GitHub</li>
-                <li><strong>Deploy</strong> — the updated module runs in CardoO’s ERP</li>
-              </ol>
-              <p class="flow-label">AI messaging automation</p>
-              <ol class="flow">
-                <li><strong>Trigger</strong> — an event happens, such as a new order</li>
-                <li><strong>n8n workflow</strong> — picks up the event automatically</li>
-                <li><strong>AI step</strong> — writes a personalised reply</li>
-                <li><strong>Send</strong> — the message goes to the customer</li>
-              </ol>
-            </details>
-            <div class="project-links">
-              <a class="link-arrow" href="https://cardoo.co/" target="_blank" rel="noopener">Visit CardoO <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-            </div>
-          </div>
-        </article>
-        <article class="card project-card reveal" data-category="work ai">
-          <div class="project-media" style="--c1:#0b1220;--c2:#134e4a"
-               data-photo="images/projects/call-center-ai.svg" data-video="images/projects/call-center-demo.mp4"
-               data-alt="Illustration of Voice Analytics Pro: call audio, emotion-tagged transcript, customer sentiment and agent performance score"><span class="media-label">Voice Analytics Pro</span></div>
-          <div class="project-body">
-            <div class="project-meta">Work · CardoO Tech Department · 2025 – now</div>
-            <h3>Voice Analytics Pro <span style="font-weight:500;color:var(--muted)">— AI call-center analytics</span></h3>
-            <p>An AI analytics platform for CardoO’s call center. It takes recorded calls (WAV/MP3), analyses the conversation between customer and agent, detects the emotion and tone of both speakers, and gives every agent a <strong>performance score out of 10</strong>. Managers get a dashboard with sentiment trends, call categories, risk levels, resolved vs. unresolved outcomes, first-call resolution and compliance rates — plus an AI assistant, detailed call reports and bilingual Arabic/English search. I use Antigravity, an AI-powered development environment, to manage the code and backend.</p>
-            <ul class="tags"><li class="tag">AI</li><li class="tag">Python</li><li class="tag">Streamlit</li><li class="tag">Speech &amp; emotion analysis</li><li class="tag">Sentiment analysis</li><li class="tag">Call-center analytics</li><li class="tag">Antigravity</li></ul>
+            <div class="project-meta">Robotics · 2019 · First-year team of 4</div>
+            <h3>Rover-1 <span style="font-weight:500;color:var(--muted)">— obstacle-avoiding robotic car</span></h3>
+            <p>Rover-1 is a four-wheel-drive robotic car that my team of four built in our first year. It finds its own way around obstacles. Its servo-mounted ultrasonic sensor scans ahead, and when something blocks the path the car turns left, turns right or reverses. It can also be controlled from a laptop. Programmed in C++.</p>
+            <ul class="tags"><li class="tag">C++</li><li class="tag">Robotics</li><li class="tag">Embedded systems</li><li class="tag">Ultrasonic sensor</li><li class="tag">Obstacle avoidance</li></ul>
             <details class="case">
               <summary>Read the case study</summary>
               <dl>
-                <div><dt>The goal</dt><dd>Help CardoO understand the quality of its customer calls — how customers feel, and how well agents handle each conversation.</dd></div>
-                <div><dt>How it works</dt><dd>
+                <div><dt>The goal</dt><dd>Build a small car that can drive itself without crashing: notice when something is in its way and choose a new direction on its own, while still letting us take control from a laptop.</dd></div>
+                <div><dt>How we built it</dt><dd>Our team of four assembled a four-wheel-drive chassis with four DC motors, mounted an ultrasonic distance sensor on a servo at the front, and wired everything to the controller board. We wrote the control program in C++. It reads the distance ahead and, when the path is blocked, uses the servo to look left and right before deciding to turn left, turn right or back up.</dd></div>
+                <div><dt>How it decides</dt><dd>
                   <ol class="flow">
-                    <li><strong>Upload</strong> — recorded customer–agent calls (WAV/MP3) are added to the platform</li>
-                    <li><strong>Analyse</strong> — AI captures the emotion, tone and sentiment of both the customer and the agent</li>
-                    <li><strong>Classify</strong> — each call is categorised (e.g. technical support, delivery, refunds), risk-rated and marked resolved or unresolved</li>
-                    <li><strong>Score</strong> — every agent gets a performance score out of 10, with compliance and first-call-resolution tracking</li>
-                    <li><strong>Report</strong> — dashboards, trends, full call reports and an AI assistant for managers</li>
+                    <li><strong>Measure</strong> — the ultrasonic sensor checks the distance ahead</li>
+                    <li><strong>Decide</strong> — the C++ program compares it with a safe distance</li>
+                    <li><strong>Path clear?</strong> Keep driving. <strong>Blocked?</strong> Stop</li>
+                    <li><strong>Scan</strong> — the servo turns the sensor left and right</li>
+                    <li><strong>Act</strong> — turn toward the clearer side, or reverse if both are blocked</li>
                   </ol>
                 </dd></div>
-                <div><dt>My role</dt><dd>Analysing the call-center dashboard and building the solution, using Antigravity to manage the code and backend.</dd></div>
+                <div><dt>The result</dt><dd>A working car, built in 2019, that avoids obstacles on its own and can also be driven from a laptop. It brought together mechanics, electronics and software in one project.</dd></div>
               </dl>
             </details>
+            <div class="project-links"><button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="rover">▶ Try the simulator</button></div>
           </div>
         </article>
         <article class="card project-card reveal" data-category="web">

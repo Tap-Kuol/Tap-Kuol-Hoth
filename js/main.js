@@ -210,7 +210,7 @@ var SITE_CONFIG = {
     var idx = start;
     var show = function (i) {
       idx = (i + list.length) % list.length;
-      openLightbox('image', list[idx], caption + ' — photo ' + (idx + 1) + ' of ' + list.length);
+      openLightbox('image', list[idx], list.length > 1 ? caption + ' — photo ' + (idx + 1) + ' of ' + list.length : caption);
       if (list.length > 1) {
         var inner = lightbox.querySelector('.lightbox-inner');
         [['prev', -1, '‹', 'Previous photo'], ['next', 1, '›', 'Next photo']].forEach(function (d) {
@@ -231,7 +231,7 @@ var SITE_CONFIG = {
     var badge = document.createElement('span');
     badge.className = 'gallery-badge';
     badge.textContent = list.length + (list.length === 1 ? ' photo' : ' photos');
-    el.appendChild(badge);
+    if (list.length > 1) el.appendChild(badge);
     el.classList.add('has-gallery');
     el.setAttribute('role', 'button');
     el.setAttribute('tabindex', '0');
@@ -271,13 +271,13 @@ var SITE_CONFIG = {
         // Animated illustrations start playing when the card scrolls into view
         var isSvg = /\.svg(\?|$)/i.test(photo);
         if (isSvg && 'IntersectionObserver' in window) {
-          img.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
+          img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
           img.style.background = 'linear-gradient(135deg, var(--c1, #0f172a), var(--c2, #334155))';
           var io2 = new IntersectionObserver(function (entries) {
             entries.forEach(function (en) {
               if (en.isIntersecting) { img.src = photo; img.style.background = ''; io2.disconnect(); }
             });
-          }, { threshold: 0.25 });
+          }, { threshold: 0.1 });
           io2.observe(media);
         } else {
           img.loading = 'lazy'; img.src = photo;

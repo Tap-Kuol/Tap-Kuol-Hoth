@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tap Kuol Hoth — Software Engineer</title>
 <meta name="description" content="Tap Kuol Hoth is a Software Engineer at CardoO and a Computer & Information Sciences graduate of Ain Shams University, originally from Bentiu, South Sudan.">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#070b14">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tap Kuol Hoth">
 <meta property="og:title" content="Tap Kuol Hoth — Software Engineer">
@@ -17,11 +17,13 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
-<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="css/theme.css">
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')})()</script>
 <script src="js/main.js" defer></script>
 <script src="js/demos.js" defer></script>
+<script src="js/theme.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,12 +50,12 @@
       <li><a href="about.html">About</a></li>
       <li><a href="education.html">Education</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="tours.html">Tours</a></li>
       <li><a href="community.html">Community</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li class="nav-mobile-only"><a href="cv.html">CV</a></li>
     </ul>
     <div class="nav-actions">
+      <button class="icon-btn" type="button" data-cmd aria-label="Open command menu" title="Command menu (Ctrl+K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
       <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
@@ -69,82 +71,61 @@
 <main id="main">
 
   <!-- ============ HERO ============ -->
-  <section class="hero">
+  <section class="hero tech-hero">
+    <canvas class="neural" data-neural aria-hidden="true"></canvas>
     <div class="container hero-grid">
       <div class="reveal">
         <span class="status"><span class="status-dot"></span>Software Engineer at CardoO</span>
-        <h1>Building software that is <em>simple</em>, reliable and useful.</h1>
-        <p class="lead">I’m Tap Kuol Hoth, a Software Engineer at CardoO and a Computer &amp; Information Sciences graduate of Ain Shams University — originally from Bentiu, South Sudan. From C++ robots to real-world software, I love turning ideas into things that work.</p>
+        <h1>Tap Kuol Hoth</h1>
+        <p class="hero-role"><span class="prompt" aria-hidden="true">&gt;</span> Software Engineer · <em>AI &amp; Automation</em></p>
+        <p class="lead">I build ERP, web and AI automation software at CardoO. Ain Shams University graduate, from Bentiu, South Sudan.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="projects.html">View my work
+          <a class="btn btn-primary" href="#work">View my work
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a class="btn btn-ghost" href="#contact">Get in touch</a>
         </div>
       </div>
       <div class="reveal">
-        <!-- Profile photo: replace images/portrait.jpg to change it -->
-        <div class="portrait">
-          <img src="images/portrait.jpg" width="960" height="958" alt="Portrait of Tap Kuol Hoth in a grey suit and red tie">
-          <div class="portrait-card">
-            <div><strong>Tap Kuol Hoth</strong><span>Software Engineer · CardoO</span></div>
-            <div class="socials">
-              <a href="https://github.com/Tap-Kuol" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
-              <a href="https://www.linkedin.com/in/tap-kuol-73ba93175/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            </div>
-          </div>
+        <!-- Profile photo with its background removed. The original is images/portrait.jpg -->
+        <div class="tech-portrait">
+          <svg class="orbit" viewBox="0 0 400 400" fill="none" aria-hidden="true"><circle cx="200" cy="200" r="176" stroke-dasharray="3 9"/><circle cx="200" cy="200" r="196" stroke-dasharray="90 60 8 60"/></svg>
+          <img src="images/portrait-cutout.png" width="640" height="638" alt="Portrait of Tap Kuol Hoth in a grey suit and red tie">
+          <ul class="chips" aria-label="Main technologies">
+            <li>Odoo</li><li>Python</li><li>n8n</li><li>AI</li>
+          </ul>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/Tap-Kuol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>
+          <a href="https://www.linkedin.com/in/tap-kuol-73ba93175/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ LOGO STRIP ============
-       Replace the names with your real schools, employers and events.
-       For real logos use: <li><img src="images/logos/name.svg" alt="Name"></li> -->
-  <section class="logos" style="padding-bottom:3.5rem">
-    <div class="container reveal">
-      <p class="logos-label">Studied, worked, trained &amp; led at</p>
-      <ul class="logo-row">
-        <li>Ain Shams University</li>
-        <li>CardoO</li>
-        <li>T-Plus Training Center</li>
-        <li>Jikany Community in Egypt</li>
+  <!-- ============ CODE WINDOW ============ -->
+  <section class="code-section">
+    <div class="container">
+      <div class="code-window reveal">
+        <div class="code-bar" aria-hidden="true"><i></i><i></i><i></i><span>tap-kuol-hoth.js</span></div>
+<pre class="code" tabindex="0" aria-label="Profile of Tap Kuol Hoth written as code"><code><span><b>const</b> <u>engineer</u> = {</span>
+<span>  name: <s>"Tap Kuol Hoth"</s>,</span>
+<span>  role: <s>"Software Engineer"</s>,</span>
+<span>  company: <s>"CardoO"</s>,</span>
+<span>  degree: <s>"B.Sc. Computer &amp; Information Sciences, Ain Shams University"</s>,</span>
+<span>  builds: [<s>"ERP modules"</s>, <s>"websites"</s>, <s>"AI automation"</s>],</span>
+<span>  languages: [<s>"C++"</s>, <s>"C#"</s>, <s>"Java"</s>, <s>"Python"</s>, <s>"SQL"</s>, <s>"JavaScript"</s>],</span>
+<span>  journey: [<s>"Bentiu"</s>, <s>"Khartoum"</s>, <s>"Cairo"</s>],</span>
+<span>};<i class="caret" aria-hidden="true"></i></span></code></pre>
+      </div>
+      <ul class="org-row reveal" aria-label="Studied, worked, trained and led at">
+        <li>Ain Shams University</li><li>CardoO</li><li>T-Plus Training Center</li><li>Jikany Community in Egypt</li>
       </ul>
     </div>
   </section>
 
-  <!-- ============ SERVICES ============ -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <span class="eyebrow">What I do</span>
-          <h2>Focused on craft, built for people.</h2>
-        </div>
-        <p>From business systems and websites to AI automation and networks — software that keeps a company running.</p>
-      </div>
-      <div class="grid grid-3">
-        <article class="card reveal">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></div>
-          <h3>ERP &amp; automation</h3>
-          <p>Managing and customising Odoo ERP modules, and building AI-powered automated messaging with n8n.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
-          <h3>Web development</h3>
-          <p>Building and maintaining websites with HTML5, CSS3 and JavaScript — including the CardoO company site.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></div>
-          <h3>Databases &amp; networking</h3>
-          <p>Designing databases with SQL (MySQL, SQL Server), with CCNA and CCNP networking training.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ FEATURED PROJECTS ============ -->
-  <section class="section">
+  <section class="section section-alt" id="work">
     <div class="container">
       <div class="section-head reveal">
         <div>
@@ -155,128 +136,155 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
-      <div class="grid grid-2">
-        <article class="card project-card reveal">
-          <!-- Photo/video load automatically from images/robotic-car.jpg and images/robotic-car.mp4 -->
-          <div class="project-media" style="--c1:#0f172a;--c2:#0891b2"
-               data-photo="images/robotic-car.svg" data-video="images/robotic-car.mp4"
-               data-alt="Rover-1, our obstacle-avoiding robotic car, detecting a box and turning away"><span class="media-label">Rover-1</span></div>
-          <div class="project-body">
-            <div class="project-meta">Robotics · 2019 · First-year team of 4</div>
-            <h3>Rover-1 <span style="font-weight:500;color:var(--muted)">— obstacle-avoiding robotic car</span></h3>
-            <p>Rover-1 is a four-wheel-drive robotic car that my team of four built in our first year. It finds its own way around obstacles. Its servo-mounted ultrasonic sensor scans ahead, and when something blocks the path the car turns left, turns right or reverses. It can also be controlled from a laptop. Programmed in C++.</p>
-            <ul class="tags"><li class="tag">C++</li><li class="tag">Robotics</li><li class="tag">Embedded systems</li><li class="tag">Ultrasonic sensor</li><li class="tag">Obstacle avoidance</li></ul>
-            <div class="project-links">
-              <button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="rover">&#9654; Try the simulator</button>
-              <a class="link-arrow" href="projects.html">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-            </div>
-          </div>
-        </article>
+
+      <article class="card flagship reveal">
+        <div class="flagship-text">
+          <div class="project-meta">Work · CardoO Tech Department</div>
+          <h3>AI call-analytics tool</h3>
+          <p>Contributed to an AI call-analytics tool in CardoO’s Tech Department.</p>
+          <ul class="tags"><li class="tag">AI</li><li class="tag">Call analytics</li></ul>
+          <div class="project-links"><a class="link-arrow" href="projects.html">See my projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </div>
+        <div class="pipeline"><img src="images/projects/ai-call-analytics.svg" width="800" height="450" alt="Concept illustration: audio flows into AI and comes out as insights" loading="lazy"></div>
+      </article>
+
+      <div class="grid grid-3 small-projects">
         <article class="card project-card reveal">
           <div class="project-media" style="--c1:#14532d;--c2:#0891b2"
                data-photo="images/projects/ai-football.svg"
                data-gallery-extra="images/projects/graduation-presentation-2024.jpg"
                data-alt="Illustration of the AI football dashboard: players detected and tracked on the pitch, with a player performance score and skill profile"><span class="media-label">AI Sports Dashboard</span></div>
           <div class="project-body">
-            <div class="project-meta">Graduation project · 2024 · Team of 6 · Grade: Excellent</div>
+            <div class="project-meta">Graduation project · 2024</div>
             <h3>AI Sports Performance Dashboard</h3>
-            <p>Our graduation project at Ain Shams University, graded Excellent: an AI system that analyses football match videos to track players, score their performance and predict how they will perform, shown in an interactive dashboard.</p>
-            <ul class="tags"><li class="tag">Artificial intelligence</li><li class="tag">Football analytics</li><li class="tag">Computer vision</li><li class="tag">Player tracking</li><li class="tag">Dashboard</li></ul>
-            <div class="project-links">
-              <button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="football">&#9654; Try the player analysis</button>
-              <a class="link-arrow" href="projects.html">All projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-            </div>
+            <p>AI that analyses football match videos, scores players and predicts their performance in an interactive dashboard. Team of 6, graded Excellent.</p>
+            <div class="project-links"><button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="football">&#9654; Try the analysis</button></div>
+          </div>
+        </article>
+        <article class="card project-card reveal">
+          <div class="project-media" style="--c1:#0f172a;--c2:#0891b2"
+               data-photo="images/robotic-car.svg" data-video="images/robotic-car.mp4"
+               data-alt="Rover-1, our obstacle-avoiding robotic car, detecting a box and turning away"><span class="media-label">Rover-1</span></div>
+          <div class="project-body">
+            <div class="project-meta">Robotics · 2019</div>
+            <h3>Rover-1</h3>
+            <p>An obstacle-avoiding robotic car programmed in C++ and controllable from a laptop. First-year team of 4.</p>
+            <div class="project-links"><button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="rover">&#9654; Try the simulator</button></div>
+          </div>
+        </article>
+        <article class="card project-card reveal">
+          <div class="project-media" style="--c1:#312e81;--c2:#6d28d9"
+               data-photo="images/projects/currency-exchange.svg"
+               data-alt="Illustration of the Currency Exchange app converting between currencies on a phone"><span class="media-label">Currency Exchange</span></div>
+          <div class="project-body">
+            <div class="project-meta">Third-year team project</div>
+            <h3>Currency Exchange App</h3>
+            <p>Choose one country’s currency and convert an amount into another country’s currency.</p>
+            <div class="project-links"><button class="btn btn-accent btn-sm demo-btn" type="button" data-demo="currency">&#9654; Try the converter</button></div>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ============ EDUCATION + EXPERIENCE SNAPSHOT ============ -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="grid grid-2" style="gap:clamp(2rem,5vw,4rem)">
-        <div class="reveal">
-          <span class="eyebrow">Education</span>
-          <h2>Learning foundations</h2>
-          <ol class="timeline" style="margin-top:2rem">
-            <li class="timeline-item current">
-              <span class="timeline-date">2019 – 2024</span>
-              <h3>B.Sc. in Computer &amp; Information Sciences</h3>
-              <div class="timeline-org">Faculty of Computer &amp; Information Sciences, Ain Shams University</div>
-              <p>General system covering software engineering, algorithms, databases, AI, cryptography and network security, with C++, C#, Java and Python; specialised in Information Systems. Graduated 2 July 2024.</p>
-            </li>
-            <li class="timeline-item">
-              <span class="timeline-date">2015 – 2018</span>
-              <h3>Sudan Secondary Certificate</h3>
-              <div class="timeline-org">Aliab Secondary School · Khartoum, Sudan</div>
-            </li>
-            <li class="timeline-item">
-              <span class="timeline-date">2002 – 2012</span>
-              <h3>Primary education</h3>
-              <div class="timeline-org">Bentiu, Unity State, South Sudan</div>
-            </li>
-          </ol>
-          <p style="margin-top:2rem"><a class="link-arrow" href="education.html">Full education &amp; certifications <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></p>
-        </div>
-        <div class="reveal">
-          <span class="eyebrow">Experience</span>
-          <h2>Where I’ve worked</h2>
-          <ol class="timeline" style="margin-top:2rem">
-            <li class="timeline-item current">
-              <span class="timeline-date">November 2025 – Present</span>
-              <h3>Software Engineer</h3>
-              <div class="timeline-org"><a href="https://cardoo.co/" target="_blank" rel="noopener">CardoO</a> &middot; Tech Department</div>
-              <p>Member of the Tech Department at CardoO, an Egyptian consumer-electronics and IoT company.</p>
-            </li>
-            <li class="timeline-item">
-              <span class="timeline-date">2019</span>
-              <h3>Rover-1</h3>
-              <div class="timeline-org">First-year team project · team of 4 · C++</div>
-            </li>
-          </ol>
-          <p style="margin-top:2rem"><a class="link-arrow" href="about.html">More about me <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TOURS TEASER ============ -->
+  <!-- ============ SERVICES ============ -->
   <section class="section">
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <span class="eyebrow">Tours</span>
-          <h2>On the road</h2>
+          <span class="eyebrow">What I do</span>
+          <h2>From business systems to AI.</h2>
         </div>
-        <a class="btn btn-ghost" href="tours.html">See all tours
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
       </div>
-      <div class="masonry">
-        <a class="card tour-card reveal" href="tours.html" style="color:inherit">
-          <div class="tour-media" style="--c1:#0369a1;--c2:#0ea5e9">
-            <img src="images/tours/ain-sokhna-1.jpg" width="788" height="1400" alt="Tap Kuol Hoth smiling on a boat on the Red Sea at Ain Sokhna" loading="lazy">
-            <span class="tour-chip">Team trip</span>
-            <div class="tour-place"><strong>Ain Sokhna</strong><span>Red Sea · Jul 2026</span></div>
-          </div>
-          <div class="tour-body"><p>A day sailing the Red Sea with the CardoO team.</p></div>
-        </a>
-        <a class="card tour-card reveal" href="tours.html" style="color:inherit">
-          <div class="tour-media" style="--c1:#1e293b;--c2:#b45309">
-            <img src="images/tours/library-alexandria-2024-1.jpg" width="1054" height="1400" alt="Tap Kuol Hoth looking at Anwar Sadat’s military uniform at the Bibliotheca Alexandrina" loading="lazy">
-            <span class="tour-chip">Culture &amp; history</span>
-            <div class="tour-place"><strong>Library of Alexandria</strong><span>Egypt · Feb 2024</span></div>
-          </div>
-          <div class="tour-body"><p>Seeing former president Anwar Sadat’s military uniform and belongings at the Bibliotheca Alexandrina’s Sadat museum.</p></div>
-        </a>
-        <a class="card tour-card reveal" href="education.html" style="color:inherit">
-          <div class="tour-media" style="--c1:#7c2d12;--c2:#0f172a">
-            <span class="tour-chip">My journey</span>
-            <div class="tour-place"><strong>Bentiu → Khartoum → Cairo</strong><span>2002 – today</span></div>
-          </div>
-          <div class="tour-body"><p>From my first lessons in Nuer in South Sudan, through secondary school in Sudan, to a degree and a career in Egypt.</p></div>
-        </a>
+      <div class="grid grid-4">
+        <article class="card glow reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+          <h3>AI &amp; automation</h3>
+          <p>AI-powered automated messaging with n8n, and AI call analytics.</p>
+        </article>
+        <article class="card glow reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg></div>
+          <h3>ERP systems</h3>
+          <p>Managing and customising Odoo ERP modules, versioned with Git and GitHub.</p>
+        </article>
+        <article class="card glow reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+          <h3>Web development</h3>
+          <p>Websites with HTML5, CSS3 and JavaScript, including the CardoO company site.</p>
+        </article>
+        <article class="card glow reveal">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></div>
+          <h3>Databases &amp; networks</h3>
+          <p>Database design with SQL (MySQL, SQL Server), with CCNA and CCNP training.</p>
+        </article>
+      </div>
+
+      <div class="stack reveal">
+        <h3>Tech stack</h3>
+        <dl>
+          <div><dt>Languages</dt><dd>C++</dd><dd>C#</dd><dd>Java</dd><dd>Python</dd><dd>SQL</dd><dd>JavaScript</dd></div>
+          <div><dt>AI &amp; ERP</dt><dd>Odoo ERP</dd><dd>n8n</dd><dd>AI automation</dd><dd>AI call analytics</dd></div>
+          <div><dt>Web &amp; data</dt><dd>HTML5</dd><dd>CSS3</dd><dd>MySQL</dd><dd>Microsoft SQL Server</dd></div>
+          <div><dt>Tools</dt><dd>Git</dd><dd>GitHub</dd><dd>VS Code</dd><dd>Visual Studio</dd><dd>Postman</dd><dd>Antigravity</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE + EDUCATION ============ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Experience &amp; education</span>
+          <h2>From Bentiu to Cairo.</h2>
+        </div>
+        <a class="btn btn-ghost" href="education.html">Full education</a>
+      </div>
+      <ol class="timeline tech-timeline reveal">
+        <li class="timeline-item current">
+          <span class="timeline-date">Nov 2025 – Present</span>
+          <h3>Software Engineer</h3>
+          <div class="timeline-org"><a href="https://cardoo.co/" target="_blank" rel="noopener">CardoO</a> · Tech Department</div>
+          <p>Odoo ERP modules, the company website, n8n automations and AI call analytics.</p>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">2025</span>
+          <h3>CCNA and CCNP training</h3>
+          <div class="timeline-org">T-Plus Training Center</div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">2019 – 2024</span>
+          <h3>B.Sc. in Computer &amp; Information Sciences</h3>
+          <div class="timeline-org">Ain Shams University · Information Systems</div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">2015 – 2018</span>
+          <h3>Sudan Secondary Certificate</h3>
+          <div class="timeline-org">Aliab Secondary School · Khartoum, Sudan</div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">2002 – 2012</span>
+          <h3>Primary education</h3>
+          <div class="timeline-org">Bentiu, Unity State, South Sudan</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ TOURS + COMMUNITY STRIP ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Beyond code</span>
+          <h2>Tours &amp; community</h2>
+        </div>
+      </div>
+      <div class="photo-strip reveal">
+        <a href="tours.html" style="flex:0.563 1 0"><img src="images/tours/ain-sokhna-1.jpg" width="788" height="1400" alt="Tap Kuol Hoth smiling on a boat on the Red Sea at Ain Sokhna" loading="lazy"><span><strong>Ain Sokhna</strong>Team trip · Jul 2026</span></a>
+        <a href="tours.html" style="flex:0.753 1 0"><img src="images/tours/library-alexandria-2024-1.jpg" width="1054" height="1400" alt="Tap Kuol Hoth looking at Anwar Sadat’s military uniform at the Bibliotheca Alexandrina" loading="lazy"><span><strong>Library of Alexandria</strong>Feb 2024</span></a>
+        <a href="community.html" style="flex:0.8 1 0"><img src="images/tours/jikany-fundraising-2022.jpg" width="1120" height="1400" alt="Jikany Community in Egypt fundraiser" loading="lazy"><span><strong>Community</strong>Jikany Community in Egypt</span></a>
       </div>
     </div>
   </section>
