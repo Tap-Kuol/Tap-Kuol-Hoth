@@ -92,7 +92,7 @@
       print('experience    where I work'); print('education     where I studied'); print('contact       how to reach me');
       print('open <page>   ' + Object.keys(pages).join(', ')); print('demo <name>   ' + demos.join(', ')); print('theme         light / dark'); print('clear         empty the screen');
     },
-    whoami: function () { print('Tap Kuol Hoth, Software Engineer at CardoO.'); print('From Bentiu, South Sudan. Based in Cairo, Egypt.'); },
+    whoami: function () { print('Tap Kuol Hoth Nguet, Software Engineer at CardoO.'); print('From Bentiu, South Sudan. Based in Cairo, Egypt.'); },
     skills: function () { print('Languages  C++, C#, Java, Python, SQL, JavaScript'); print('ERP and AI Odoo ERP, n8n, AI automation'); print('Web, data  HTML5, CSS3, MySQL, SQL Server'); print('Tools      Git, GitHub, VS Code, Postman'); },
     projects: function () { print('1. AI Sports Performance Dashboard (2024, Excellent)'); print('2. Odoo ERP, website and AI automation at CardoO'); print('3. Rover-1 robotic car in C++ (2019)'); print('4. Currency Exchange App'); print('Open the Projects page', '', 'projects.html'); },
     experience: function () { print('Nov 2025 to now: Software Engineer, CardoO, Tech Department'); },
