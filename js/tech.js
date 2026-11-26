@@ -94,7 +94,7 @@
     },
     whoami: function () { print('Tap Kuol Hoth Nguet, Software Engineer at CardoO.'); print('From Bentiu, South Sudan. Based in Cairo, Egypt.'); },
     skills: function () { print('Languages  C++, C#, Java, Python, SQL, JavaScript'); print('ERP and AI Odoo ERP, n8n, AI automation'); print('Web, data  HTML5, CSS3, MySQL, SQL Server'); print('Tools      Git, GitHub, VS Code, Postman'); },
-    projects: function () { print('1. AI Sports Performance Dashboard (2024)'); print('2. Odoo ERP, website and AI automation at CardoO'); print('3. Rover-1 robotic car in C++ (2019)'); print('4. Currency Exchange App'); print('Open the Projects page', '', 'projects.html'); },
+    projects: function () { print('1. AI Sports Performance Dashboard (2024)'); print('2. Odoo ERP, website and AI automation at CardoO'); print('3. Rover-1 robotic car in C++ (2019)'); print('4. Currency Exchange App (C#)'); print('Open the Projects page', '', 'projects.html'); },
     experience: function () { print('Nov 2025 to now: Software Engineer, CardoO, Tech Department'); },
     education: function () { print('2019 to 2024: B.Sc. Computer and Information Sciences,'); print('Ain Shams University, Information Systems'); print('2025: CCNA and CCNP training, T-Plus'); },
     contact: function () { print('tapkuol34@gmail.com', '', 'mailto:tapkuol34@gmail.com'); print('linkedin.com/in/tap-kuol-73ba93175', '', 'https://www.linkedin.com/in/tap-kuol-73ba93175/'); },
