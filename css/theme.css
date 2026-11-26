@@ -325,3 +325,13 @@ canvas[data-binary] { position: absolute; inset: 0; width: 100%; height: 100%; p
 .binary-band canvas[data-binary] { z-index: 0; }
 .binary-band + .site-footer { border-top: 0; }
 @media (max-width: 640px) { .binary-band { height: 64px; } }
+/* Portrait frame: editorial offset (Option B). A red outline sits behind the photo, offset down and right. */
+.tech-portrait::before { inset: 0; transform: translate(18px, 18px); background: none; border: 2px solid #760f13; border-radius: 6px; z-index: -1; }
+.tech-portrait::after { display: none; }
+.tech-portrait img { position: relative; border: 0; border-radius: 6px; box-shadow: 0 30px 60px -25px rgba(0, 0, 0, .85); }
+:root[data-theme="light"] .tech-portrait img { box-shadow: 0 26px 50px -24px rgba(10, 19, 36, .45); }
+.frame-tag { position: absolute; z-index: 2; left: -14px; bottom: 26px; padding: .45rem .7rem; background: #760f13; color: #fff; font: 700 .72rem var(--font-mono); letter-spacing: .08em; box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .6); }
+@media (max-width: 640px) {
+  .tech-portrait::before { transform: translate(12px, 12px); }
+  .frame-tag { left: -8px; bottom: 18px; font-size: .64rem; }
+}
