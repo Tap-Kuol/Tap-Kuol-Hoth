@@ -8,7 +8,7 @@
     var ctx = cv.getContext('2d'), hero = cv.parentNode, W = 0, H = 0, nodes = [], pulses = [];
     var mouse = null, raf = 0, visible = true, last = 0, LINK = 150, small = false;
 
-    /* Inner-page backgrounds: "circuit" (Projects, CV-style pages) and "code" (About, Education, Notes) */
+    /* Inner-page backgrounds: "chip" (Projects), "circuit" (spare) and "code" (About, Education, Notes) */
     var mode = cv.getAttribute('data-neural') || 'net', traces = [], glyphs = [];
     var build = function () {
       traces = []; glyphs = [];
@@ -25,13 +25,87 @@
           traces.push({ p: pts, t: Math.random() * 6, v: Math.random() < .3 });
         }
       }
+      if (mode === 'chip') {
+        // Processor core: traces from four sides run into a chip on the right; pulses flow into it
+        var s = small ? 40 : 68, reach = Math.min(small ? 70 : 165, W * .12), cx = W - Math.max(reach + s / 2 + 20, W * .14), cy = H * .5, step = small ? 13 : 21;
+        chip = { x: cx, y: cy, s: s, t: 0 };
+        for (var side = 0; side < 4; side++) for (var k = -2; k <= 2; k++) {
+          var off = k * step, h = s / 2, p;
+          if (side === 0) p = [[cx - h - reach, cy + off * 1.6], [cx - h - reach * .36, cy + off * 1.6], [cx - h - reach * .14, cy + off], [cx - h, cy + off]];
+          if (side === 1) p = [[cx + h + reach, cy + off * 1.6], [cx + h + reach * .36, cy + off * 1.6], [cx + h + reach * .14, cy + off], [cx + h, cy + off]];
+          if (side === 2) p = [[cx + off * 1.8, cy - h - reach * .86], [cx + off * 1.8, cy - h - reach * .3], [cx + off, cy - h - reach * .12], [cx + off, cy - h]];
+          if (side === 3) p = [[cx + off * 1.8, cy + h + reach * .86], [cx + off * 1.8, cy + h + reach * .3], [cx + off, cy + h + reach * .12], [cx + off, cy + h]];
+          var L = 0; for (var q = 0; q < p.length - 1; q++) L += Math.hypot(p[q + 1][0] - p[q][0], p[q + 1][1] - p[q][1]);
+          traces.push({ p: p, L: L, d: Math.random() * L * 2 - L, sp: 50 + Math.random() * 40, red: Math.random() < .2 });
+        }
+        // Memory bank on the left (wide screens only): two modules with blinking lights, sending data towards the chip
+        mems = [];
+        if (!small) {
+          for (var m = 0; m < 2; m++) {
+            var mod = { x: W * .07 + m * 46, y: cy - 72, w: 30, h: 144, leds: [] };
+            for (var l = 0; l < 6; l++) mod.leds.push(Math.random() * 6);
+            mems.push(mod);
+          }
+          for (var r = 0; r < 5; r++) {
+            var yy = cy - 48 + r * 24, sx = W * .07 + 76, mp = [[sx, yy], [W * .26, yy], [W * .26 + 20, yy + (r - 2) * 6], [W * .4, yy + (r - 2) * 6]];
+            var ML = 0; for (var mq = 0; mq < mp.length - 1; mq++) ML += Math.hypot(mp[mq + 1][0] - mp[mq][0], mp[mq + 1][1] - mp[mq][1]);
+            traces.push({ p: mp, L: ML, d: Math.random() * ML * 2 - ML, sp: 50 + Math.random() * 40, red: Math.random() < .2 });
+          }
+        }
+      }
       if (mode === 'code') {
         var words = ['{ }', '</>', '=>', 'if', '01', '10', 'return', '[ ]', 'SELECT', 'class', '++', '&&', 'def', 'const', ';'];
         var n = Math.min(small ? 22 : 60, Math.round(W * H / 9000));
         for (i = 0; i < n; i++) glyphs.push({ x: Math.random() * W, y: Math.random() * H, s: 5 + Math.random() * 13, w: words[i % words.length], v: Math.random() < .3, z: 11 + Math.random() * 6 });
       }
     };
+    var chip = null, mems = [];
+    var along = function (p, d) {
+      for (var i = 0; i < p.length - 1; i++) { var a = p[i], b = p[i + 1], l = Math.hypot(b[0] - a[0], b[1] - a[1]); if (d <= l) return [a[0] + (b[0] - a[0]) * d / l, a[1] + (b[1] - a[1]) * d / l]; d -= l; }
+      return p[p.length - 1];
+    };
+    var drawChip = function (dt, cyan, violet, dark) {
+      var red = '192,52,58';
+      ctx.lineCap = 'round';
+      traces.forEach(function (o) {
+        ctx.strokeStyle = 'rgba(' + cyan + ',' + (dark ? .2 : .26) + ')'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(o.p[0][0], o.p[0][1]); for (var i = 1; i < o.p.length; i++) ctx.lineTo(o.p[i][0], o.p[i][1]); ctx.stroke();
+        ctx.fillStyle = 'rgba(' + cyan + ',.45)'; ctx.beginPath(); ctx.arc(o.p[0][0], o.p[0][1], 2.2, 0, 7); ctx.fill();
+        o.d += o.sp * dt; if (o.d > o.L + 160) { o.d = -Math.random() * 200; o.red = Math.random() < .2; }
+        if (o.d > 0) { // pulse with a fading tail
+          var head = Math.min(o.d, o.L), rgb = o.red ? red : cyan;
+          for (var k = 0; k < 12; k++) {
+            var d1 = head - 50 * k / 12, d2 = head - 50 * (k + 1) / 12; if (d2 < 0) break;
+            var p1 = along(o.p, d1), p2 = along(o.p, d2);
+            ctx.strokeStyle = 'rgba(' + rgb + ',' + (.9 * (1 - k / 12)) + ')'; ctx.lineWidth = 1.5;
+            ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke();
+          }
+          var hp = along(o.p, head); ctx.fillStyle = 'rgba(' + rgb + ',1)'; ctx.beginPath(); ctx.arc(hp[0], hp[1], 2.2, 0, 7); ctx.fill();
+        }
+      });
+      chip.t += dt;
+      var g = .5 + .5 * Math.sin(chip.t * 1.6), s = chip.s, x = chip.x - s / 2, y = chip.y - s / 2;
+      ctx.shadowColor = 'rgba(' + violet + ',' + (.5 + .4 * g) + ')'; ctx.shadowBlur = 30 + 20 * g;
+      ctx.fillStyle = dark ? '#0d1426' : '#ffffff'; ctx.strokeStyle = 'rgba(' + violet + ',.9)'; ctx.lineWidth = 1.6;
+      ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, s, s, 8); else ctx.rect(x, y, s, s); ctx.fill(); ctx.stroke(); ctx.shadowBlur = 0;
+      ctx.strokeStyle = 'rgba(' + cyan + ',' + (.35 + .4 * g) + ')'; ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x + s * .21, y + s * .21, s * .58, s * .58, 4); else ctx.rect(x + s * .21, y + s * .21, s * .58, s * .58); ctx.stroke();
+      ctx.fillStyle = 'rgba(' + red + ',' + (.6 + .4 * g) + ')'; ctx.beginPath(); ctx.arc(chip.x, chip.y, 3, 0, 7); ctx.fill();
+      mems.forEach(function (md, i) {
+        ctx.fillStyle = dark ? '#0d1426' : '#ffffff'; ctx.strokeStyle = 'rgba(' + violet + ',.75)'; ctx.lineWidth = 1.3;
+        ctx.shadowColor = 'rgba(' + violet + ',.5)'; ctx.shadowBlur = 18;
+        ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(md.x, md.y, md.w, md.h, 4); else ctx.rect(md.x, md.y, md.w, md.h); ctx.fill(); ctx.stroke(); ctx.shadowBlur = 0;
+        ctx.fillStyle = 'rgba(' + cyan + ',.35)';
+        for (var p = 0; p < 9; p++) ctx.fillRect(md.x + md.w, md.y + 10 + p * 14, 5, 3);
+        md.leds.forEach(function (ph, k) {
+          var on = (Math.sin(chip.t * 3 + ph) + 1) / 2;
+          ctx.fillStyle = 'rgba(' + (k === 2 && i === 0 ? red : cyan) + ',' + (.25 + .7 * on) + ')';
+          ctx.beginPath(); ctx.arc(md.x + md.w / 2, md.y + 18 + k * 22, 3, 0, 7); ctx.fill();
+        });
+      });
+    };
     var drawMode = function (dt, cyan, violet, dark) {
+      if (mode === 'chip') { drawChip(dt, cyan, violet, dark); return; }
       traces.forEach(function (tr) {
         var c = tr.v ? violet : cyan, p = tr.p, end = p[p.length - 1];
         ctx.strokeStyle = 'rgba(' + c + ',' + (dark ? .34 : .28) + ')'; ctx.lineWidth = 1.2;

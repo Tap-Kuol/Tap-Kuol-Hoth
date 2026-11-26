@@ -1,7 +1,7 @@
 /* Binary rain: slow, faint 0/1 columns in the site colours.
    <canvas data-binary="full">  whole area (404 page)
    <canvas data-binary="edges"> only in the empty space left and right of the content (Home code section)
-   <canvas data-binary="band">  thin strip above the footer */
+   <canvas data-binary="band">  thin strip above the footer, drawn as a digital signal instead of rain */
 (function () {
   var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('canvas[data-binary]').forEach(function (cv) {
@@ -52,6 +52,7 @@
     };
     var glyph = function () { return Math.random() < .5 ? '0' : '1'; };
     var paintStill = function () {
+      if (mode === 'band') { drawSignal(0); return; }
       var c = colour(); ctx.font = '500 ' + SIZE + 'px "JetBrains Mono", Consolas, monospace'; ctx.textAlign = 'center';
       cols.forEach(function (col) {
         for (var i = 0; i < col.len; i++) {
@@ -60,7 +61,31 @@
         }
       });
     };
+    // band mode: the binary drawn as a glowing digital signal (square wave), bits written faintly underneath, a red pulse travelling along
+    var bits = [], off = 0, tt = 0;
+    for (var bi = 0; bi < 600; bi++) bits.push(Math.random() < .5 ? 0 : 1);
+    var drawSignal = function (dt) {
+      var c = colour(), cw = W < 700 ? 22 : 26, top = H * .3, bot = H * .6, i, x, k;
+      off += 30 * dt; tt += dt;
+      ctx.clearRect(0, 0, W, H);
+      var start = Math.floor(off / cw), frac = off % cw;
+      ctx.lineJoin = 'miter'; ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(' + c.a + ',' + .75 * c.k + ')';
+      ctx.shadowColor = 'rgba(' + c.a + ',.7)'; ctx.shadowBlur = 8; ctx.beginPath();
+      for (x = -frac, k = start, i = 0; x < W + cw; x += cw, k++, i++) {
+        var y = bits[k % bits.length] ? top : bot;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        ctx.lineTo(x + cw, y);
+      }
+      ctx.stroke(); ctx.shadowBlur = 0;
+      ctx.font = '500 11px "JetBrains Mono", Consolas, monospace'; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(163,177,199,' + .4 * c.k + ')';
+      for (x = -frac, k = start; x < W + cw; x += cw, k++) ctx.fillText(bits[k % bits.length], x + cw / 2, H * .88);
+      var px = (tt * 140) % (W + 200) - 100, py = bits[Math.floor((px + off) / cw) % bits.length] ? top : bot;
+      var g = ctx.createRadialGradient(px, py, 0, px, py, 26); g.addColorStop(0, 'rgba(192,52,58,.9)'); g.addColorStop(1, 'rgba(192,52,58,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, 26, 0, 7); ctx.fill();
+      ctx.fillStyle = 'rgba(255,220,220,1)'; ctx.beginPath(); ctx.arc(px, py, 2.6, 0, 7); ctx.fill();
+    };
     var draw = function (dt) {
+      if (mode === 'band') { drawSignal(dt); return; }
       var c = colour();
       ctx.clearRect(0, 0, W, H);
       ctx.font = '500 ' + SIZE + 'px "JetBrains Mono", Consolas, monospace'; ctx.textAlign = 'center';
@@ -82,7 +107,8 @@
     };
     var frame = function (now) {
       raf = 0;
-      if (now - last > 50) { draw(Math.min((now - last) / 1000, .1)); last = now; } // about 20 frames a second: slow and light
+      // rain: about 20 frames a second (slow and light); signal: every frame so the line glides smoothly
+      if (mode === 'band' || now - last > 50) { draw(Math.min((now - last) / 1000, .1)); last = now; }
       start();
     };
     var start = function () { if (!still && visible && !document.hidden && !raf && W) raf = requestAnimationFrame(frame); };
