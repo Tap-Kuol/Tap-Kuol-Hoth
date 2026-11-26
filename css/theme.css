@@ -307,3 +307,9 @@ body::before { content: ""; position: fixed; inset: -20%; z-index: -3; pointer-e
 /* Profile photo in the menu and footer */
 .brand-mark:has(img) { width: 36px; height: 36px; padding: 0; border-radius: 50%; overflow: hidden; background: #0f1626; box-shadow: 0 0 0 2px #760f13, 0 0 14px -2px rgba(118, 15, 19, .8); }
 .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Home: full name always on one line, sized to its column (desktop and phone) */
+@supports (font-size: 1cqi) {
+  .tech-hero .hero-grid > div:first-child { container-type: inline-size; }
+  .tech-hero h1 { white-space: nowrap; font-size: clamp(1.6rem, calc(100cqi / 9.7), 4.8rem); }
+}
