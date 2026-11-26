@@ -313,3 +313,15 @@ body::before { content: ""; position: fixed; inset: -20%; z-index: -3; pointer-e
   .tech-hero .hero-grid > div:first-child { container-type: inline-size; }
   .tech-hero h1 { white-space: nowrap; font-size: clamp(1.6rem, calc(100cqi / 9.7), 4.8rem); }
 }
+
+/* Binary rain (js/binary.js) */
+canvas[data-binary] { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+.code-section { position: relative; isolation: isolate; }
+.code-section canvas[data-binary] { -webkit-mask-image: linear-gradient(transparent, #000 12%, #000 80%, transparent); mask-image: linear-gradient(transparent, #000 12%, #000 80%, transparent); }
+.binary-full { position: fixed !important; } /* the centre fade is drawn in js/binary.js */
+.binary-band { position: relative; height: 84px; overflow: hidden; isolation: isolate; border-top: 1px solid var(--border);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 70%, transparent); -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 30%, #000 70%, transparent); mask-composite: intersect; }
+.binary-band canvas[data-binary] { z-index: 0; }
+.binary-band + .site-footer { border-top: 0; }
+@media (max-width: 640px) { .binary-band { height: 64px; } }
